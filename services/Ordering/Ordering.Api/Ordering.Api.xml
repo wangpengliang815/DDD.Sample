@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ordering.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Ordering.Api.Controllers.OrderController.Get">
+            <summary>Get Orders</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ordering.Api.DefaultLauncher.BuildServices(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>Builds the services.</summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+    </members>
+</doc>
