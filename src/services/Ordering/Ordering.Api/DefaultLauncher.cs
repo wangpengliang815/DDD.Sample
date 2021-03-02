@@ -54,17 +54,6 @@ namespace Ordering.Api
                     .UseSqlServer(Configuration
                         .GetSection("Database:ConnectString").Value);
                 });
-
-                services.AddDbContext<ApplicationReadOnlyDbContext>(options =>
-                {
-                    options
-#if debugLogger
-                    .UseLoggerFactory(LoggerFactory)
-                    .EnableSensitiveDataLogging(true)
-#endif
-                    .UseSqlServer(Configuration
-                        .GetSection("Database:ConnectString_ReadOnly").Value);
-                });
             }
             // OData
             services.AddOData();

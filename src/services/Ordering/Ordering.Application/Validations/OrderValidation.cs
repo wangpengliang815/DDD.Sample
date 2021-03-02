@@ -32,12 +32,14 @@
                 .Must(HavePhone)
                 .WithMessage("手机号应该为11位！");
         }
-        //验证Guid
-        //protected void ValidateId()
-        //{
-        //    RuleFor(c => c.AggregateId)
-        //        .NotEqual(Guid.Empty);
-        //}
+#if debug
+        // 验证Guid
+        protected void ValidateId()
+        {
+            RuleFor(c => c.AggregateId)
+                .NotEqual(Guid.Empty);
+        }
+#endif
 
         // 表达式
         protected static bool HaveMinimumAge(DateTime birthDate)

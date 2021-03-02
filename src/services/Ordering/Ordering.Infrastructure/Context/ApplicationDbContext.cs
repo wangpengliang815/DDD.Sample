@@ -6,10 +6,8 @@
 
     public class ApplicationDbContext : DbContext
     {
-        public const string DEFAULT_SCHEMA = "DDDSample";
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-         : base(options)
+        public ApplicationDbContext(
+            DbContextOptions options) : base(options)
         {
 
         }

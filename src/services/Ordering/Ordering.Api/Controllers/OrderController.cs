@@ -15,29 +15,23 @@ namespace Ordering.Api.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private IMediator mediator { get; }
-        private readonly ApplicationReadOnlyDbContext dbContext;
+        private IMediator Mediator { get; }
 
-        public OrderController(ApplicationReadOnlyDbContext dbContext
+        private readonly ApplicationDbContext dbContext;
+
+        public OrderController(ApplicationDbContext dbContext
             , IMediator mediator)
         {
             this.dbContext = dbContext;
-            this.mediator = mediator;
+            this.Mediator = mediator;
         }
 
         /// <summary>Get Orders</summary>
         /// <returns></returns>
-        [HttpGet("odata/orders")]
+        [HttpGet("odata")]
         public ActionResult<IQueryable<OrderEntity>> Get()
         {
             return dbContext.Orders;
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
         }
 
         /// <summary>Posts Order</summary>
@@ -45,19 +39,7 @@ namespace Ordering.Api.Controllers
         [HttpPost]
         public void Post([FromBody] AddOrderCommandArgs command)
         {
-            mediator.Send(command);
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            Mediator.Send(command);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Ordering.DomainService.Implements
         public async Task<Order> CreateAsync(Order model)
         {
             OrderEntity entity = mapper.Map<OrderEntity>(model);
-            entity.OrderId = Guid.NewGuid().ToString();
+            entity.Id = Guid.NewGuid().ToString();
             orderRepository.Create(entity);
             await unitOfWork.Commit();
             return mapper.Map<Order>(entity);
