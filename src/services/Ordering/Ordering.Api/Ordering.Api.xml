@@ -8,6 +8,10 @@
             <summary>Get Orders</summary>
             <returns></returns>
         </member>
+        <member name="M:Ordering.Api.Controllers.OrderController.Post(Ordering.Application.Commands.AddOrderCommandArgs)">
+            <summary>Posts Order</summary>
+            <param name="command">The command.</param>
+        </member>
         <member name="M:Ordering.Api.DefaultLauncher.BuildServices(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
             <summary>Builds the services.</summary>
             <param name="app">The application.</param>
