@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using DomainCore.Safety;
+using DotnetCoreInfra.Safety;
 
-namespace DomainCore.Extension
+namespace DotnetCoreInfra.Extension
 {
     /// <summary>
     /// 集合扩展类

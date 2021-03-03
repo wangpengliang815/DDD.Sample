@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DomainCore\DomainCore.csproj" />
+    <ProjectReference Include="..\..\DotnetCoreInfra\DotnetCoreInfra.csproj" />
     <ProjectReference Include="..\Ordering.DomainService\Ordering.DomainService.csproj" />
     <ProjectReference Include="..\Ordering.Domain\Ordering.Domain.csproj" />
   </ItemGroup>

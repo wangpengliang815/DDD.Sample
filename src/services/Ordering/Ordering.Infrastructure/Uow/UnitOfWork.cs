@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    using DomainCore.SeedWork;
+    using DotnetCoreInfra.SeedWork;
 
     using Ordering.Infrastructure.Context;
 

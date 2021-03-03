@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-using DomainCore.SeedWork;
+using DotnetCoreInfra.SeedWork;
 
 using Ordering.Domain.AggregateModels;
 

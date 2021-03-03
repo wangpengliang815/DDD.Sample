@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DomainCore.Safety
+namespace DotnetCoreInfra.Safety
 {
     /// <summary>
     /// 对属性进行加密与解密操作

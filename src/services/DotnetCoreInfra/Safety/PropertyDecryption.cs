@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace DomainCore.Safety
+namespace DotnetCoreInfra.Safety
 {
     public static class PropertyDecryption
     {

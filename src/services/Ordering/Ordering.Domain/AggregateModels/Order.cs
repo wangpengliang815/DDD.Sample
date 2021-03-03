@@ -1,6 +1,6 @@
 ﻿using System;
 
-using DomainCore.SeedWork;
+using DotnetCoreInfra.SeedWork;
 
 namespace Ordering.Domain.AggregateModels
 {

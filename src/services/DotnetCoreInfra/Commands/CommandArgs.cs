@@ -2,7 +2,7 @@
 
 using FluentValidation.Results;
 
-namespace DomainCore.Commands
+namespace DotnetCoreInfra.Commands
 {
     /// <summary>
     /// 抽象命令基类

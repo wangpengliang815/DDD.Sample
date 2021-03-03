@@ -1,4 +1,4 @@
-﻿using DomainCore.SeedWork;
+﻿using DotnetCoreInfra.SeedWork;
 
 using Microsoft.EntityFrameworkCore;
 

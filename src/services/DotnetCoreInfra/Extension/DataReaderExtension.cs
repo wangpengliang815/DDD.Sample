@@ -1,4 +1,4 @@
-﻿namespace DomainCore.Extension
+﻿namespace DotnetCoreInfra.Extension
 {
     using System;
     using System.Collections.Generic;

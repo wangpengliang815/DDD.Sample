@@ -1,10 +1,10 @@
 ﻿using System;
 
-using DomainCore.Common;
+using DotnetCoreInfra.Common;
 
 using Microsoft.AspNetCore.Builder;
 
-namespace DomainCore.Extension
+namespace DotnetCoreInfra.Extension
 {
     public static class ServiceProviderExtensions
     {

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 
-using DomainCore.SeedWork;
+using DotnetCoreInfra.SeedWork;
 
 using Ordering.Domain.AggregateModels;
 using Ordering.Domain.Entities;

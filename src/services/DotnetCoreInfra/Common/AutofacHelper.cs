@@ -7,7 +7,7 @@ using Autofac.Extensions.DependencyInjection;
 
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DomainCore.Common
+namespace DotnetCoreInfra.Common
 {
     public static class AutofacHelper
     {

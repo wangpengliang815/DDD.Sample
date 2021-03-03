@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DomainCore.Extension
+namespace DotnetCoreInfra.Extension
 {
     public static class ConvertExtension
     {

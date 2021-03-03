@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace DomainCore.SeedWork
+namespace DotnetCoreInfra.SeedWork
 {
     /// <summary>
     /// 工作单元接口

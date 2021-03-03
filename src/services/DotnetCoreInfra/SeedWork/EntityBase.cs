@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DomainCore.SeedWork
+namespace DotnetCoreInfra.SeedWork
 {
     /// <summary>
     /// 定义领域实体基类

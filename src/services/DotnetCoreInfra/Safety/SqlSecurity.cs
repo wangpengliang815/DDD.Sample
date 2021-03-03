@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
-namespace DomainCore.Safety
+namespace DotnetCoreInfra.Safety
 {
     public class SqlSecurity
     {

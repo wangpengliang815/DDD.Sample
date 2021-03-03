@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    using DomainCore.Commands;
+    using DotnetCoreInfra.Commands;
 
     public abstract class OrderCommandArgs : CommandArgs
     {

@@ -14,8 +14,7 @@ namespace Ordering.Infrastructure.MapperProfiles
 
         private void InitOrderProfile()
         {
-            CreateMap<Order, OrderEntity>()
-                    .ForMember(dest => dest.Id, opt => opt.MapFrom(field => field.Id)).ReverseMap();
+            CreateMap<Order, OrderEntity>();
         }
     }
 }
