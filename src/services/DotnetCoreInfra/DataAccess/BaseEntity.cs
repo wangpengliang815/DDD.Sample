@@ -33,7 +33,7 @@
         /// <value>The is deleted.</value>
         public virtual bool? IsDeleted { get; set; }
 
-        public abstract object GetId();
+        public abstract Guid GetId();
 
         /// <summary>
         /// 返回唯一的40位长度的Id (UnixTime+Guid)

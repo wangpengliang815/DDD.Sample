@@ -10,7 +10,7 @@
     using DotnetCoreInfra.DataAccess;
 
     /// <summary>实体数据读写访问器接口</summary>
-    public interface IEntityDataAccessor
+    public interface IDataAccessor : IBatchDataAccessor
     {
         Task<TEntity> FindAsync<TEntity>(
             Guid id
@@ -80,13 +80,8 @@
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
         Task<TEntity> LogicDeleteAsync<TEntity>(
-            TEntity entity
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<TEntity> LogicDeleteAsync<TEntity>(
             Guid id
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
         Task<TEntity> UpdateAsync<TEntity>(
             TEntity entity
@@ -97,33 +92,8 @@
             , List<string> propertiesToInclude
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
-        Task<TEntity> DeletePhysicallyAsync<TEntity>(
-            TEntity entity
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<TEntity> DeletePhysicallyAsync<TEntity>(
+        Task<bool> DeletePhysicallyAsync<TEntity>(
             Guid id
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<int> BatchDeletePhysicallyAsync<TEntity>(
-            Expression<Func<TEntity, bool>> expression
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<List<TEntity>> BatchInsertAsync<TEntity>(
-            List<TEntity> entityList
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<List<TEntity>> BatchLogicDeleteAsync<TEntity>(
-            List<TEntity> entityList
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<List<TEntity>> BatchUpdatePartiallyAsync<TEntity>(
-            List<TEntity> entityList
-            , List<string> propertiesToUpdate
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<List<TEntity>> BatchUpdateAsync<TEntity>(
-           List<TEntity> entityList
-           , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
     }
 }

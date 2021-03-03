@@ -2,16 +2,23 @@
 {
     using System.Linq;
 
+    using DotnetCoreInfra.Options;
+
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Options;
 
     public abstract class BaseDataAccessor<TContext>
         where TContext : DbContext
     {
         protected DbContext DbContext { get; }
 
-        protected BaseDataAccessor(TContext dbContext)
+        protected DataAccessorOptions AccessorOptions { get; private set; }
+
+        protected BaseDataAccessor(TContext dbContext
+            , IOptions<DataAccessorOptions> options)
         {
             DbContext = dbContext;
+            AccessorOptions = options.Value;
         }
 
         /// <summary>
