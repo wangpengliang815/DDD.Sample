@@ -23,6 +23,12 @@
         , IEntityDataAccessor
         where TContext : DbContext
     {
+        public EntityDataAccessor(TContext dbContext) :
+            base(dbContext)
+        {
+
+        }
+
         public async Task<TEntity> FindAsync<TEntity>(Guid id
             , bool includeDeleted = false)
             where TEntity : BaseEntity
@@ -53,31 +59,17 @@
                 throw new RequireIdException(typeof(TEntity));
             }
 
-            entity.Creator = UserProvider.CurrentUser;
-            entity.Created = UserProvider.Now;
-            entity.Editor = UserProvider.CurrentUser;
-            entity.Edited = UserProvider.Now;
             entity.IsDeleted = false;
 
-            DbContext.Add(entity);
-            if (AccessorOptions.SaveImmediately)
-            {
-                await DbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-                // 取消新插入对象的跟踪状态
-                DbContext.Entry(entity).State = EntityState.Detached;
-            }
+            await DbContext.AddAsync(entity);
             return entity;
         }
 
-
-        /// <summary>Gets the list asynchronously.</summary>
-        /// <typeparam name="TEntity">The type of the entity.</typeparam>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns></returns>
-        public async Task<List<TEntity>> GetListAsync<TEntity>(bool includeDeleted = false, CancellationToken cancellationToken = default) where TEntity : BaseEntity
+        public async Task<List<TEntity>> GetListAsync<TEntity>(bool includeDeleted = false
+            , CancellationToken cancellationToken = default) 
+            where TEntity : BaseEntity
         {
-            IQueryable<TEntity> query = DbContext.Set<TEntity>()
-                        .AsNoTracking();
+            IQueryable<TEntity> query = DbContext.Set<TEntity>().AsNoTracking();
             if (!includeDeleted)
             {
                 query = query.Where(p => p.IsDeleted == false);
@@ -85,13 +77,6 @@
             return await query.ToListAsync(cancellationToken).ConfigureAwait(false);
         }
 
-        /// <summary>Gets the list asynchronously.</summary>
-        /// <typeparam name="TEntity">The type of the entity.</typeparam>
-        /// <param name="predicate">The predicate.</param>
-        /// <param name="skip">The skip.</param>
-        /// <param name="take">The take.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns></returns>
         public async Task<List<TEntity>> GetListAsync<TEntity>(
             Expression<Func<TEntity, bool>> predicate
             , int skip
@@ -122,8 +107,6 @@
         /// </remarks>
         public async Task<TEntity> UpdateAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : BaseEntity
         {
-            ArgumentHelper.CheckNull(entity, nameof(entity));
-
             if (entity.GetId() == null)
             {
                 throw new ArgumentException("Fault: Entity.GetId() is null.", nameof(entity));
@@ -135,7 +118,6 @@
                                  .ConfigureAwait(false);
 
         }
-
 
 
         /// <summary>Updates the partially asynchronously.</summary>
@@ -176,7 +158,6 @@
                         , cancellationToken)
                  .ConfigureAwait(false);
         }
-
 
         /// <summary>
         /// 逻辑删除
