@@ -9,16 +9,12 @@
 
     using DotnetCoreInfra.DataAccess;
 
-    /// <summary>IEntityDataAccessor,实体数据读写访问器接口</summary>
-    /// <seealso cref="DotnetCoreInfra.DataAccessInterfaces.IEntityBatchDataAccessor" />
-    public interface IEntityDataAccessor : IEntityBatchDataAccessor
+    /// <summary>实体数据读写访问器接口</summary>
+    public interface IEntityDataAccessor
     {
-        Task<TEntity> FindAsync<TEntity>(Guid id, bool includeDeleted = false)
-            where TEntity : BaseEntity;
-
-        Task<List<TEntity>> BatchUpdateAsync<TEntity>(List<TEntity> entityList
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
+        Task<TEntity> FindAsync<TEntity>(
+            Guid id
+            , bool includeDeleted = false) where TEntity : BaseEntity;
 
         /// <summary>执行带返回结果的存储过程</summary>
         /// <typeparam name="TResult">返回集合元素类型</typeparam>
@@ -27,11 +23,11 @@
         /// <param name="procedureParameters">存储过程的参数</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>存储过程执行过程中的第一个数据集合</returns>
-        Task<List<TResult>> ExecProcedureAsync<TResult>(string procedureStatement
+        Task<List<TResult>> ExecProcedureAsync<TResult>(
+            string procedureStatement
             , string parameterDefinitions
             , object procedureParameters
-            , CancellationToken cancellationToken = default)
-            where TResult : class, new();
+            , CancellationToken cancellationToken = default) where TResult : class, new();
 
         /// <summary>执行存储过程,无返回值</summary>
         /// <param name="procedureStatement">存储过程名称</param>
@@ -39,7 +35,8 @@
         /// <param name="procedureParameters">存储过程参数对象</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task ExecProcedureNoReturnAsync(string procedureStatement
+        Task ExecProcedureNoReturnAsync(
+            string procedureStatement
             , string parameterDefinitions
             , object procedureParameters
             , CancellationToken cancellationToken = default);
@@ -48,7 +45,8 @@
         /// <param name="procedureStatement">存储过程名称</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        Task ExecProcedureNoReturnAsync(string procedureStatement
+        Task ExecProcedureNoReturnAsync(
+            string procedureStatement
             , CancellationToken cancellationToken = default);
 
         /// <summary>执行存储过程,无参数,返回DataSet</summary>
@@ -60,49 +58,72 @@
         /// Return a dataset, including mutiple datatable result executed out in a procedure. 
         /// A datatable means a 'select' query in the procedure. 
         /// </returns>
-        Task<DataSet> ExecProcedureReturnDataSetAsync(string procedureStatement
-                , string parameterDefinitions
-                , object procedureParameters
-                , CancellationToken cancellationToken = default);
+        Task<DataSet> ExecProcedureReturnDataSetAsync(
+            string procedureStatement
+            , string parameterDefinitions
+            , object procedureParameters
+            , CancellationToken cancellationToken = default);
 
-        Task<List<TEntity>> GetListAsync<TEntity>(bool includeDeleted = false
-                , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
+        Task<List<TEntity>> GetListAsync<TEntity>(
+            bool includeDeleted = false
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
-        Task<List<TEntity>> GetListAsync<TEntity>(Expression<Func<TEntity, bool>> predicate
+        Task<List<TEntity>> GetListAsync<TEntity>(
+            Expression<Func<TEntity, bool>> predicate
             , int skip
             , int take
             , bool includeDeleted = false
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<TEntity> InsertAsync<TEntity>(
+            TEntity entity
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<TEntity> LogicDeleteAsync<TEntity>(
+            TEntity entity
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<TEntity> LogicDeleteAsync<TEntity>(
+            Guid id
             , CancellationToken cancellationToken = default)
             where TEntity : BaseEntity;
 
-        Task<TEntity> InsertAsync<TEntity>(TEntity entity
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
+        Task<TEntity> UpdateAsync<TEntity>(
+            TEntity entity
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
-        Task<TEntity> LogicDeleteAsync<TEntity>(TEntity entity
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
-
-        Task<TEntity> LogicDeleteAsync<TEntity>(Guid id
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
-
-        Task<TEntity> UpdateAsync<TEntity>(TEntity entity
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
-
-        Task<TEntity> UpdatePartiallyAsync<TEntity>(TEntity entity
+        Task<TEntity> UpdatePartiallyAsync<TEntity>(
+            TEntity entity
             , List<string> propertiesToInclude
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
-        Task<TEntity> DeletePhysicallyAsync<TEntity>(TEntity entity
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
+        Task<TEntity> DeletePhysicallyAsync<TEntity>(
+            TEntity entity
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
-        Task<TEntity> DeletePhysicallyAsync<TEntity>(Guid id
-            , CancellationToken cancellationToken = default)
-            where TEntity : BaseEntity;
+        Task<TEntity> DeletePhysicallyAsync<TEntity>(
+            Guid id
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<int> BatchDeletePhysicallyAsync<TEntity>(
+            Expression<Func<TEntity, bool>> expression
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<List<TEntity>> BatchInsertAsync<TEntity>(
+            List<TEntity> entityList
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<List<TEntity>> BatchLogicDeleteAsync<TEntity>(
+            List<TEntity> entityList
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<List<TEntity>> BatchUpdatePartiallyAsync<TEntity>(
+            List<TEntity> entityList
+            , List<string> propertiesToUpdate
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<List<TEntity>> BatchUpdateAsync<TEntity>(
+           List<TEntity> entityList
+           , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
     }
 }
