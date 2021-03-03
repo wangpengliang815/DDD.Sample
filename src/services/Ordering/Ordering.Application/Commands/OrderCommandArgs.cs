@@ -1,6 +1,5 @@
 ﻿namespace Ordering.Application.Commands
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
 
     using DotnetCoreInfra.Commands;

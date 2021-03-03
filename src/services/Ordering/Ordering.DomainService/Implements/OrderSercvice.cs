@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 
 using AutoMapper;
@@ -9,7 +8,6 @@ using DotnetCoreInfra.SeedWork;
 using Ordering.Domain.AggregateModels;
 using Ordering.Domain.Entities;
 using Ordering.DomainService.Interfaces;
-using Ordering.Infrastructure.Repositories;
 
 namespace Ordering.DomainService.Implements
 {

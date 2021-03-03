@@ -13,8 +13,6 @@
     using DotnetCoreInfra.Exceptions;
 
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.ChangeTracking;
-    using Microsoft.Extensions.Options;
 
     /// <summary>
     /// 实体数据读写访问器

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 using MediatR;
 
@@ -23,7 +22,7 @@ namespace Ordering.Api.Controllers
             , IMediator mediator)
         {
             this.dbContext = dbContext;
-            this.Mediator = mediator;
+            Mediator = mediator;
         }
 
         /// <summary>Get Orders</summary>

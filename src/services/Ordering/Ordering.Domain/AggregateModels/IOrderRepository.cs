@@ -4,6 +4,6 @@ namespace Ordering.Domain.AggregateModels
 {
     public interface IOrderRepository : IBaseRepository<OrderEntity>
     {
-      
+
     }
 }

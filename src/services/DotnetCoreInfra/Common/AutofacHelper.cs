@@ -22,7 +22,9 @@ namespace DotnetCoreInfra.Common
             lock (locker)
             {
                 if (Builder != null)
+                {
                     return;
+                }
 
                 Builder = new ContainerBuilder();
             }

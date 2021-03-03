@@ -13,7 +13,10 @@ namespace DotnetCoreInfra.Safety
         public static string SafeSqlString(string text)
         {
             if (text == null)
+            {
                 return null;
+            }
+
             string restr = System.Text.RegularExpressions.Regex.Replace(text, "exec", "ｅｘｅｃ", System.Text.RegularExpressions.RegexOptions.Singleline | System.Text.RegularExpressions.RegexOptions.IgnoreCase);
             restr = System.Text.RegularExpressions.Regex.Replace(restr, "declare", "ｄｅｃｌａｒｅ", System.Text.RegularExpressions.RegexOptions.Singleline | System.Text.RegularExpressions.RegexOptions.IgnoreCase);
             restr = System.Text.RegularExpressions.Regex.Replace(restr, "update", "ｕｐｄａｔｅ", System.Text.RegularExpressions.RegexOptions.Singleline | System.Text.RegularExpressions.RegexOptions.IgnoreCase);
@@ -31,7 +34,10 @@ namespace DotnetCoreInfra.Safety
         public static string FilterInput(string strInput)
         {
             if (string.IsNullOrWhiteSpace(strInput))
+            {
                 return string.Empty;
+            }
+
             string sourceStr = strInput;// 保留原有字符串
             // 过滤的关键字
             string[] Lawlesses = { " or ", " and ", " not ", "exec ", "xp_", "select ", "insert ", "delete ", "update ", "drop ", "alter ", "create ", "sp_" };

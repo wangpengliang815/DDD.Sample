@@ -21,13 +21,17 @@ namespace DotnetCoreInfra.Extension
         public static void AddCollection<T>(this List<T> source, IEnumerable<T> s)
         {
             if (s.HasAnyElement())
+            {
                 source.AddRange(s);
+            }
         }
 
         public static void AddCollection<T>(this List<T> source, params T[] s)
         {
             if (s.HasAnyElement())
+            {
                 source.AddRange(s);
+            }
         }
 
         /// <summary>
@@ -62,7 +66,10 @@ namespace DotnetCoreInfra.Extension
         public static bool HasAnyElement<T>(this IEnumerable<T> source)
         {
             if (source == null || !source.Any())
+            {
                 return false;
+            }
+
             return true;
         }
 
@@ -75,7 +82,9 @@ namespace DotnetCoreInfra.Extension
         public static bool HasNoAnyElement<T>(this IEnumerable<T> source)
         {
             if (source == null || !source.Any())
+            {
                 return true;
+            }
 
             return false;
         }
@@ -83,7 +92,9 @@ namespace DotnetCoreInfra.Extension
         public static string ToQueryString(this Dictionary<string, string> source)
         {
             if (source == null || !source.Any())
+            {
                 return string.Empty;
+            }
 
             StringBuilder s = new StringBuilder();
 
@@ -106,10 +117,14 @@ namespace DotnetCoreInfra.Extension
         public static List<List<T>> Partition<T>(this IEnumerable<T> source, int count)
         {
             if (source.HasNoAnyElement())
+            {
                 return new List<List<T>>();
+            }
 
             if (count <= 0)
+            {
                 throw new ArgumentException("count", "数量需要大于0");
+            }
 
             List<List<T>> container = new List<List<T>>();
 
@@ -120,7 +135,9 @@ namespace DotnetCoreInfra.Extension
             {
                 List<T> to = source.Skip(skip).Take(take).ToList();
                 if (!to.Any())
+                {
                     break;
+                }
 
                 container.Add(to);
                 skip += take;

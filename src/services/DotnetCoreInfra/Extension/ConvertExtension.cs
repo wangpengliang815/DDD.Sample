@@ -12,7 +12,11 @@ namespace DotnetCoreInfra.Extension
         public static int ObjToInt(this object thisValue)
         {
             int reval = 0;
-            if (thisValue == null) return 0;
+            if (thisValue == null)
+            {
+                return 0;
+            }
+
             if (thisValue != DBNull.Value && int.TryParse(thisValue.ToString(), out reval))
             {
                 return reval;
@@ -71,7 +75,11 @@ namespace DotnetCoreInfra.Extension
         /// <returns></returns>
         public static string ObjToString(this object thisValue)
         {
-            if (thisValue != null) return thisValue.ToString().Trim();
+            if (thisValue != null)
+            {
+                return thisValue.ToString().Trim();
+            }
+
             return "";
         }
 
@@ -83,7 +91,11 @@ namespace DotnetCoreInfra.Extension
         /// <returns></returns>
         public static string ObjToString(this object thisValue, string errorValue)
         {
-            if (thisValue != null) return thisValue.ToString().Trim();
+            if (thisValue != null)
+            {
+                return thisValue.ToString().Trim();
+            }
+
             return errorValue;
         }
 
@@ -92,7 +104,7 @@ namespace DotnetCoreInfra.Extension
         /// </summary>
         /// <param name="thisValue"></param>
         /// <returns></returns>
-        public static Decimal ObjToDecimal(this object thisValue)
+        public static decimal ObjToDecimal(this object thisValue)
         {
             if (thisValue != null && thisValue != DBNull.Value && decimal.TryParse(thisValue.ToString(), out decimal reval))
             {
@@ -107,7 +119,7 @@ namespace DotnetCoreInfra.Extension
         /// <param name="thisValue"></param>
         /// <param name="errorValue"></param>
         /// <returns></returns>
-        public static Decimal ObjToDecimal(this object thisValue, decimal errorValue)
+        public static decimal ObjToDecimal(this object thisValue, decimal errorValue)
         {
             if (thisValue != null && thisValue != DBNull.Value && decimal.TryParse(thisValue.ToString(), out decimal reval))
             {

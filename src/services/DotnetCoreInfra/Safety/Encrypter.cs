@@ -49,7 +49,7 @@ namespace DotnetCoreInfra.Safety
             byte[] result = sha.ComputeHash(bytes);
             return BitConverter.ToString(result);
         }
-   
+
         /// <summary>
         /// 加密方法
         /// </summary>
@@ -58,7 +58,7 @@ namespace DotnetCoreInfra.Safety
         /// <returns></returns>
         public static string EncryptByDes(string input, string key)
         {
-            byte[] inputBytes = Encoding.UTF8.GetBytes(input); 
+            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
             byte[] keyBytes = Encoding.UTF8.GetBytes(key);
             byte[] encryptBytes = EncryptByDes(inputBytes, keyBytes, keyBytes);
             //string result = Encoding.UTF8.GetString(encryptBytes); //无法解码,其加密结果中文出现乱码：d\"�e����(��uπ�W��-��,_�\nJn7 

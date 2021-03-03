@@ -100,7 +100,9 @@ namespace DotnetCoreInfra.Safety
         public string EncryptString(string source, string seed)
         {
             if (string.IsNullOrEmpty(source))
+            {
                 return string.Empty;
+            }
 
             string result = "";
 
@@ -118,9 +120,14 @@ namespace DotnetCoreInfra.Safety
             finally
             {
                 if (outStream != null)
+                {
                     outStream.Close();
+                }
+
                 if (inStream != null)
+                {
                     inStream.Close();
+                }
             }
 
             return result;
@@ -144,7 +151,9 @@ namespace DotnetCoreInfra.Safety
         public string DecryptString(string source, string seed)
         {
             if (string.IsNullOrEmpty(source))
+            {
                 return string.Empty;
+            }
 
             string result = "";
             MemoryStream inStream = null;
@@ -161,9 +170,14 @@ namespace DotnetCoreInfra.Safety
             finally
             {
                 if (outStream != null)
+                {
                     outStream.Close();
+                }
+
                 if (inStream != null)
+                {
                     inStream.Close();
+                }
             }
 
             return result;
