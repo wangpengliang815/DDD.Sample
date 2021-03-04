@@ -8,6 +8,9 @@ using Autofac.Extensions.DependencyInjection;
 
 using AutoMapper;
 
+using DotnetCoreInfra.DataAccess;
+using DotnetCoreInfra.DataAccessInterface;
+
 using MediatR;
 
 using Microsoft.AspNet.OData.Builder;
@@ -66,6 +69,10 @@ namespace Ordering.Api
 
             // HttpContext
             services.AddHttpContextAccessor();
+
+            // 默认数据读写访问器
+            services.AddScoped<IUnitOfWork, EfUnitOfWork<ApplicationDbContext>>();
+            services.AddScoped<IDataAccessor, DataAccessor<ApplicationDbContext>>();
 
             // MediatR反射获取注入类型
             services.AddMediatR(typeof(Startup).Assembly);

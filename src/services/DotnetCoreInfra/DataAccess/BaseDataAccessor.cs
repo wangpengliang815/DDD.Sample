@@ -10,7 +10,7 @@
     public abstract class BaseDataAccessor<TContext>
         where TContext : DbContext
     {
-        protected DbContext DbContext { get; }
+        protected TContext DbContext { get; }
 
         protected DataAccessorOptions AccessorOptions { get; private set; }
 
