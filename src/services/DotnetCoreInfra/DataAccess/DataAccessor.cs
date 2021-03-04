@@ -25,6 +25,11 @@
         , IDataAccessor
         where TContext : DbContext
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAccessor{TContext}"/> class.
+        /// </summary>
+        /// <param name="dbContext">The database context.</param>
+        /// <param name="options">The options.</param>
         public DataAccessor(TContext dbContext
             , IOptions<DataAccessorOptions> options) : base(dbContext, options)
         {
@@ -64,7 +69,13 @@
 
             entity.IsDeleted = false;
 
-            await DbContext.AddAsync(entity);
+            DbContext.Add(entity);
+            if (AccessorOptions.SaveImmediately)
+            {
+                await DbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+                // 取消新插入对象的跟踪状态
+                DbContext.Entry(entity).State = EntityState.Detached;
+            }
             return entity;
         }
 
@@ -105,10 +116,7 @@
             , CancellationToken cancellationToken = default)
             where TEntity : BaseEntity
         {
-            if (entity.GetId() == null)
-            {
-                throw new ArgumentException("Fault: Entity.GetId() is null.", nameof(entity));
-            }
+            InternalUpdateAsync(entity);
             List<string> propertiesToExclude =
                 AccessorOptions.CreationFields.Concat(AccessorOptions.DeletionFields).ToList();
 
@@ -116,11 +124,34 @@
                                  .ConfigureAwait(false);
         }
 
+        private static void InternalUpdateAsync<TEntity>(TEntity entity) where TEntity : BaseEntity
+        {
+            if (entity.GetId() == null)
+            {
+                throw new ArgumentException("Fault: Entity.GetId() is null.", nameof(entity));
+            }
+        }
+
         public async Task<TEntity> UpdatePartiallyAsync<TEntity>(
               TEntity entity
             , List<string> propertiesToInclude
             , CancellationToken cancellationToken = default)
             where TEntity : BaseEntity
+        {
+            InternalUpdatePartiallyAsync(entity, propertiesToInclude);
+            return await InnerUpdatePartiallyAsync(entity
+                        , propertiesToInclude.Concat(AccessorOptions.EditionFields)  // 附加 编辑标记字段
+                                            .Except(AccessorOptions.CreationFields)
+                                            .Except(AccessorOptions.DeletionFields)  // 排除 创建和删除标记字段
+                                            .ToList()
+                        , null
+                        , cancellationToken)
+                 .ConfigureAwait(false);
+        }
+
+        private static void InternalUpdatePartiallyAsync<TEntity>(
+            TEntity entity
+            , List<string> propertiesToInclude) where TEntity : BaseEntity
         {
             if (entity.GetId() == null)
             {
@@ -132,14 +163,6 @@
                 throw new ArgumentException("Fault: propertiesToUpdate must contains at least one property name.", nameof(propertiesToInclude));
 
             }
-            return await InnerUpdatePartiallyAsync(entity
-                        , propertiesToInclude.Concat(AccessorOptions.EditionFields)  // 附加 编辑标记字段
-                                            .Except(AccessorOptions.CreationFields)
-                                            .Except(AccessorOptions.DeletionFields)  // 排除 创建和删除标记字段
-                                            .ToList()
-                        , null
-                        , cancellationToken)
-                 .ConfigureAwait(false);
         }
 
         public async Task<TEntity> LogicDeleteAsync<TEntity>(
@@ -195,7 +218,20 @@
             entity.Editor = UserProvider.CurrentUser;
             entity.Edited = UserProvider.Now;
 #endif
+            InternalInnerUpdatePartiallyAsync(entity, propertiesToInclude, propertiesToExclude);
 
+            if (AccessorOptions.SaveImmediately)
+            {
+                await DbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+            }
+            return entity;
+        }
+
+        private void InternalInnerUpdatePartiallyAsync<TEntity>(
+            TEntity entity
+            , List<string> propertiesToInclude
+            , List<string> propertiesToExclude) where TEntity : BaseEntity
+        {
             EntityEntry<TEntity> entry = DbContext.Entry<TEntity>(entity);
 
             if (propertiesToInclude != null)
@@ -219,12 +255,6 @@
             {
                 throw new ArgumentException("Arguments propertiesToInclude and propertiesToExclude cannot be null simultaneously");
             }
-
-            if (AccessorOptions.SaveImmediately)
-            {
-                await DbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-            }
-            return entity;
         }
     }
 }

@@ -9,12 +9,44 @@
 
     using DotnetCoreInfra.DataAccess;
 
-    /// <summary>实体数据读写访问器接口</summary>
+    /// <summary>读写访问器接口</summary>
     public interface IDataAccessor : IBatchDataAccessor
     {
         Task<TEntity> FindAsync<TEntity>(
             Guid id
             , bool includeDeleted = false) where TEntity : BaseEntity;
+
+        Task<List<TEntity>> GetListAsync<TEntity>(
+            bool includeDeleted = false
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<List<TEntity>> GetListAsync<TEntity>(
+            Expression<Func<TEntity, bool>> predicate
+            , int skip
+            , int take
+            , bool includeDeleted = false
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<TEntity> InsertAsync<TEntity>(
+            TEntity entity
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<TEntity> LogicDeleteAsync<TEntity>(
+            Guid id
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<TEntity> UpdateAsync<TEntity>(
+            TEntity entity
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<TEntity> UpdatePartiallyAsync<TEntity>(
+            TEntity entity
+            , List<string> propertiesToInclude
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+
+        Task<bool> DeletePhysicallyAsync<TEntity>(
+            Guid id
+            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
         /// <summary>执行带返回结果的存储过程</summary>
         /// <typeparam name="TResult">返回集合元素类型</typeparam>
@@ -63,37 +95,5 @@
             , string parameterDefinitions
             , object procedureParameters
             , CancellationToken cancellationToken = default);
-
-        Task<List<TEntity>> GetListAsync<TEntity>(
-            bool includeDeleted = false
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<List<TEntity>> GetListAsync<TEntity>(
-            Expression<Func<TEntity, bool>> predicate
-            , int skip
-            , int take
-            , bool includeDeleted = false
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<TEntity> InsertAsync<TEntity>(
-            TEntity entity
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<TEntity> LogicDeleteAsync<TEntity>(
-            Guid id
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<TEntity> UpdateAsync<TEntity>(
-            TEntity entity
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<TEntity> UpdatePartiallyAsync<TEntity>(
-            TEntity entity
-            , List<string> propertiesToInclude
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<bool> DeletePhysicallyAsync<TEntity>(
-            Guid id
-            , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
     }
 }

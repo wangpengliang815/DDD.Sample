@@ -9,6 +9,7 @@
 
     using DotnetCoreInfra.DataAccess;
 
+    /// <summary>批量写操作访问器接口</summary>
     public interface IBatchDataAccessor
     {
         Task<int> BatchDeletePhysicallyAsync<TEntity>(
@@ -22,14 +23,13 @@
         Task<List<TEntity>> BatchLogicDeleteAsync<TEntity>(
             List<TEntity> entityList
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
+        Task<List<TEntity>> BatchUpdateAsync<TEntity>(
+          List<TEntity> entityList
+          , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
         Task<List<TEntity>> BatchUpdatePartiallyAsync<TEntity>(
             List<TEntity> entityList
             , List<string> propertiesToUpdate
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
-
-        Task<List<TEntity>> BatchUpdateAsync<TEntity>(
-           List<TEntity> entityList
-           , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
     }
 }
