@@ -1,8 +1,7 @@
-﻿namespace DotnetCoreInfra.DataAccess
+﻿namespace DotnetCoreInfra.Abstractions
 {
     using System.Linq;
 
-    using DotnetCoreInfra.Abstractions;
     using DotnetCoreInfra.Options;
 
     using Microsoft.EntityFrameworkCore;
@@ -45,7 +44,7 @@
         {
             TEntity local = DbContext.Set<TEntity>()
                 .Local
-                .FirstOrDefault(entry => entry.GetId().Equals(entity.GetId()));
+                .FirstOrDefault(entry => entry.Id.Equals(entity.Id));
             if (local != null)
             {
                 DbContext.Entry(local).State = EntityState.Detached;

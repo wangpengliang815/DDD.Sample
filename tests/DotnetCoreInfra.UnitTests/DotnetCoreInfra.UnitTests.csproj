@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>netcoreapp2.1</TargetFramework>
 
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
@@ -12,10 +12,15 @@
 		<PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
 		<PackageReference Include="coverlet.collector" Version="1.2.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.1" />
+		<PackageReference Include="MSTestEnhancer" Version="1.6.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DataAccessTests\" />
 	</ItemGroup>
 
 </Project>

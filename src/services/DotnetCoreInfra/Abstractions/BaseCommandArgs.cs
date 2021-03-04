@@ -7,7 +7,7 @@ namespace DotnetCoreInfra.Abstractions
     /// <summary>
     /// 抽象命令基类
     /// </summary>
-    public abstract class CommandArgs
+    public abstract class BaseCommandArgs
     {
         //时间戳
         public DateTime Timestamp { get; private set; }
@@ -15,7 +15,7 @@ namespace DotnetCoreInfra.Abstractions
         //验证结果，需要引用FluentValidation
         public ValidationResult ValidationResult { get; set; }
 
-        protected CommandArgs()
+        protected BaseCommandArgs()
         {
             Timestamp = DateTime.Now;
         }

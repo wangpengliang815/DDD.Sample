@@ -5,7 +5,7 @@ namespace DotnetCoreInfra.Abstractions
     /// <summary>
     /// 定义领域实体基类
     /// </summary>
-    public abstract class EntityBase
+    public abstract class BaseDomainEntity
     {
         /// <summary>
         /// 唯一标识

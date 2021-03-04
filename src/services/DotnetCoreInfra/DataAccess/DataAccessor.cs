@@ -62,11 +62,6 @@
             , CancellationToken cancellationToken = default)
             where TEntity : BaseEntity
         {
-            if (entity.GetId() == null)
-            {
-                throw new RequireIdException(typeof(TEntity));
-            }
-
             entity.IsDeleted = false;
 
             DbContext.Add(entity);
@@ -116,20 +111,11 @@
             , CancellationToken cancellationToken = default)
             where TEntity : BaseEntity
         {
-            InternalUpdateAsync(entity);
             List<string> propertiesToExclude =
                 AccessorOptions.CreationFields.Concat(AccessorOptions.DeletionFields).ToList();
 
             return await InnerUpdatePartiallyAsync(entity, null, propertiesToExclude, cancellationToken)
                                  .ConfigureAwait(false);
-        }
-
-        private static void InternalUpdateAsync<TEntity>(TEntity entity) where TEntity : BaseEntity
-        {
-            if (entity.GetId() == null)
-            {
-                throw new ArgumentException("Fault: Entity.GetId() is null.", nameof(entity));
-            }
         }
 
         public async Task<TEntity> UpdatePartiallyAsync<TEntity>(
@@ -138,7 +124,7 @@
             , CancellationToken cancellationToken = default)
             where TEntity : BaseEntity
         {
-            InternalUpdatePartiallyAsync(entity, propertiesToInclude);
+            InternalUpdatePartiallyAsync(propertiesToInclude);
             return await InnerUpdatePartiallyAsync(entity
                         , propertiesToInclude.Concat(AccessorOptions.EditionFields)  // 附加 编辑标记字段
                                             .Except(AccessorOptions.CreationFields)
@@ -149,19 +135,12 @@
                  .ConfigureAwait(false);
         }
 
-        private static void InternalUpdatePartiallyAsync<TEntity>(
-            TEntity entity
-            , List<string> propertiesToInclude) where TEntity : BaseEntity
+        private static void InternalUpdatePartiallyAsync(
+            List<string> propertiesToInclude)
         {
-            if (entity.GetId() == null)
-            {
-                throw new ArgumentException("Fault: Entity.GetId() is null.", nameof(entity));
-            }
-
             if (propertiesToInclude == null || propertiesToInclude.Count == 0)
             {
                 throw new ArgumentException("Fault: propertiesToUpdate must contains at least one property name.", nameof(propertiesToInclude));
-
             }
         }
 

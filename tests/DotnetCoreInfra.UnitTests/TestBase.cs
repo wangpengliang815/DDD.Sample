@@ -1,6 +1,9 @@
 using System;
 
+using DotnetCoreInfra.Options;
+
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 using Ordering.Infrastructure.Context;
 
@@ -8,7 +11,12 @@ namespace DotnetCoreInfra.UnitTests
 {
     public class TestBase
     {
-        protected TestBase() { }
+        protected IOptions<DataAccessorOptions> dataAccessorOptions;
+
+        protected TestBase()
+        {
+            dataAccessorOptions.Value.SaveImmediately = true;
+        }
 
         /// <summary>
         /// 内存数据库Context
@@ -16,8 +24,9 @@ namespace DotnetCoreInfra.UnitTests
         /// 所以在每个测试用例中一定要手动清除当前用例构建的测试数据
         /// 否则可能出现单个测试运行正常,运行全部测试时,某些断言无法通过的问题
         /// </summary>
-        protected static ApplicationDbContext TestMemoryDbContext =>
-            new ApplicationDbContext(new DbContextOptionsBuilder<ApplicationDbContext>()
+        protected static ApplicationDbContext TestMemoryDbContext
+            => new ApplicationDbContext(
+                new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
     }
 }

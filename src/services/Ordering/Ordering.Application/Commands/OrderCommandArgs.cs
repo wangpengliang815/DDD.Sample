@@ -4,7 +4,7 @@
 
     using DotnetCoreInfra.Abstractions;
 
-    public abstract class OrderCommandArgs : CommandArgs
+    public abstract class OrderCommandArgs : BaseCommandArgs
     {
         [Required]
         public string ConsigneeName { get; protected set; }

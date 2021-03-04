@@ -7,8 +7,6 @@ namespace DotnetCoreInfra.DataAccessInterface
     /// </summary>
     public interface IDeletable
     {
-        Guid GetId();
-
         bool? IsDeleted { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace DotnetCoreInfra.Common
     {
         private static readonly ConcurrentDictionary<Type, Dictionary<long, string>> descDictionary
             = new ConcurrentDictionary<Type, Dictionary<long, string>>();
+
         /// <summary>
         /// 获取枚举对应的描述，该方法仅简单的获取描述信息，如未注册过描述信息则直接返回ToString()结果
         /// </summary>

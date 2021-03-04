@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
+using DotnetCoreInfra.Abstractions;
+
 namespace Ordering.Domain.Entities
 {
     [Table("T_Ordering_Order")]
-    public class OrderEntity
+    public class OrderEntity : BaseEntity
     {
-        public string Id { get; set; }
-
         /// <summary>
         /// 收货人名称
         /// </summary>

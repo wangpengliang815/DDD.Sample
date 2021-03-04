@@ -9,7 +9,7 @@ namespace Ordering.Domain.AggregateModels
     /// 订单实体,聚合根
     /// </summary>
     public class Order
-        : EntityBase, IAggregateRoot
+        : BaseDomainEntity, IAggregateRoot
     {
         /// <summary>
         /// 收货人名称
