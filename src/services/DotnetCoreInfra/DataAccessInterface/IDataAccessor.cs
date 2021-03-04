@@ -7,7 +7,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    using DotnetCoreInfra.DataAccess;
+    using DotnetCoreInfra.Abstractions;
 
     /// <summary>读写访问器接口</summary>
     public interface IDataAccessor : IBatchDataAccessor

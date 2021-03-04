@@ -2,7 +2,7 @@
 
 using FluentValidation.Results;
 
-namespace DotnetCoreInfra.Commands
+namespace DotnetCoreInfra.Abstractions
 {
     /// <summary>
     /// 抽象命令基类

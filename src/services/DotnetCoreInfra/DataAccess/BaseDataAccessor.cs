@@ -2,6 +2,7 @@
 {
     using System.Linq;
 
+    using DotnetCoreInfra.Abstractions;
     using DotnetCoreInfra.Options;
 
     using Microsoft.EntityFrameworkCore;

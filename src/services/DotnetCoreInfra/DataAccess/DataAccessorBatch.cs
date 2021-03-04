@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
+using DotnetCoreInfra.Abstractions;
 using DotnetCoreInfra.DataAccessInterface;
 using DotnetCoreInfra.Extension;
 

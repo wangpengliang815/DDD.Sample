@@ -1,5 +1,6 @@
 ﻿using System;
 
+using DotnetCoreInfra.Abstractions;
 using DotnetCoreInfra.SeedWork;
 
 namespace Ordering.Domain.AggregateModels

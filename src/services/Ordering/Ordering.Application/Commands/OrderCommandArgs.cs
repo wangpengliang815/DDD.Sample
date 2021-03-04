@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    using DotnetCoreInfra.Commands;
+    using DotnetCoreInfra.Abstractions;
 
     public abstract class OrderCommandArgs : CommandArgs
     {

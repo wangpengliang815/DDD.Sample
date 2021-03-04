@@ -2,12 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Linq.Expressions;
     using System.Threading;
     using System.Threading.Tasks;
 
-    using DotnetCoreInfra.DataAccess;
+    using DotnetCoreInfra.Abstractions;
 
     /// <summary>批量写操作访问器接口</summary>
     public interface IBatchDataAccessor

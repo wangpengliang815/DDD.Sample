@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotnetCoreInfra.SeedWork
+namespace DotnetCoreInfra.Abstractions
 {
     /// <summary>
     /// 定义领域实体基类

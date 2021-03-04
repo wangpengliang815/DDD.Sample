@@ -1,4 +1,4 @@
-﻿namespace DotnetCoreInfra.DataAccess
+﻿namespace DotnetCoreInfra.Abstractions
 {
     using System;
     using System.Globalization;

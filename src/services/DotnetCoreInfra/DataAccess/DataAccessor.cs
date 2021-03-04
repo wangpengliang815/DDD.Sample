@@ -2,12 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.SqlClient;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Threading;
     using System.Threading.Tasks;
 
+    using DotnetCoreInfra.Abstractions;
     using DotnetCoreInfra.DataAccessInterface;
     using DotnetCoreInfra.Exceptions;
     using DotnetCoreInfra.Options;

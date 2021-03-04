@@ -1,5 +1,5 @@
 ﻿
-using DotnetCoreInfra.DataAccess;
+using DotnetCoreInfra.Abstractions;
 
 namespace DotnetCoreInfra.Options
 {
