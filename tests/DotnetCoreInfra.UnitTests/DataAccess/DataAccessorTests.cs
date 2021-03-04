@@ -18,8 +18,6 @@ namespace DotnetCoreInfra.DataAccess.Tests
     [TestClass()]
     public class DataAccessorTests : TestBase
     {
-        private DataAccessor<DbContext> dataAccessor;
-
         [TestMethod]
         public void Default()
         {
@@ -29,8 +27,7 @@ namespace DotnetCoreInfra.DataAccess.Tests
         [TestInitialize]
         public void Init()
         {
-            dataAccessor = new DataAccessor<DbContext>(TestMemoryDbContext
-                , dataAccessorOptions);
+
         }
 
         [ContractTestCase]

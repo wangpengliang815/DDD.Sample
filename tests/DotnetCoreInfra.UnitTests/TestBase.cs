@@ -11,11 +11,9 @@ namespace DotnetCoreInfra.UnitTests
 {
     public class TestBase
     {
-        protected IOptions<DataAccessorOptions> dataAccessorOptions;
-
         protected TestBase()
         {
-            dataAccessorOptions.Value.SaveImmediately = true;
+            
         }
 
         /// <summary>
