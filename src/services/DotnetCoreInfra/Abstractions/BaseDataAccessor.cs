@@ -12,7 +12,7 @@
     {
         protected TContext DbContext { get; }
 
-        protected DataAccessorOptions AccessorOptions { get; private set; }
+        protected DataAccessorOptions AccessorOptions { get; set; }
 
         protected BaseDataAccessor(TContext dbContext
             , IOptions<DataAccessorOptions> options)

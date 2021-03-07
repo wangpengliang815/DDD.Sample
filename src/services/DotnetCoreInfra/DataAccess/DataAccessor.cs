@@ -36,7 +36,7 @@
         }
 
         public async Task<TEntity> FindAsync<TEntity>(
-            Guid id
+            string id
             , bool includeDeleted = false)
             where TEntity : BaseEntity
         {
@@ -145,7 +145,7 @@
         }
 
         public async Task<TEntity> LogicDeleteAsync<TEntity>(
-            Guid id
+            string id
             , CancellationToken cancellationToken = default)
             where TEntity : BaseEntity
         {
@@ -169,7 +169,7 @@
         }
 
         public async Task<bool> DeletePhysicallyAsync<TEntity>(
-            Guid id
+            string id
             , CancellationToken cancellationToken = default)
             where TEntity : BaseEntity
         {

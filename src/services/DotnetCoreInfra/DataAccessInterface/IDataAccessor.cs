@@ -13,7 +13,7 @@
     public interface IDataAccessor : IBatchDataAccessor
     {
         Task<TEntity> FindAsync<TEntity>(
-            Guid id
+            string id
             , bool includeDeleted = false) where TEntity : BaseEntity;
 
         Task<List<TEntity>> GetListAsync<TEntity>(
@@ -32,7 +32,7 @@
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
         Task<TEntity> LogicDeleteAsync<TEntity>(
-            Guid id
+            string id
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
         Task<TEntity> UpdateAsync<TEntity>(
@@ -45,7 +45,7 @@
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
         Task<bool> DeletePhysicallyAsync<TEntity>(
-            Guid id
+            string id
             , CancellationToken cancellationToken = default) where TEntity : BaseEntity;
 
         /// <summary>执行带返回结果的存储过程</summary>

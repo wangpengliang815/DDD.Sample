@@ -13,14 +13,11 @@
 		<PackageReference Include="coverlet.collector" Version="1.2.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.1" />
 		<PackageReference Include="MSTestEnhancer" Version="1.6.0" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="DataAccessTests\" />
 	</ItemGroup>
 
 </Project>

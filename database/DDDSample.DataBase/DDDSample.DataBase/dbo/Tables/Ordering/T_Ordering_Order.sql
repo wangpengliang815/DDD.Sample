@@ -2,7 +2,12 @@
 (
 	[Id] NVARCHAR(100) NOT NULL PRIMARY KEY, 
     [ConsigneeName] NVARCHAR(100) NULL, 
-    [ConsigneePhone] NVARCHAR(100) NULL
+    [ConsigneePhone] NVARCHAR(100) NULL,
+    [Creator]                  NVARCHAR (100)  NULL,
+    [Created]                  DATETIME    NULL,
+    [Editor]                   NVARCHAR (100)  NULL,
+    [Edited]                   DATETIME    NULL, 
+    [IsDeleted]                BIT NULL, 
 )
 
 GO
