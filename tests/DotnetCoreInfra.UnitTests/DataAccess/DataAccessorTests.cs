@@ -1,7 +1,6 @@
 ﻿//#define inMemoryDatabase
 #define debugLogger
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 using DotnetCoreInfra.Common;
@@ -15,8 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Ordering.Domain.Entities;
 using Ordering.Infrastructure.Context;
+using Ordering.Infrastructure.Entities;
 
 namespace DotnetCoreInfra.UnitTests
 {

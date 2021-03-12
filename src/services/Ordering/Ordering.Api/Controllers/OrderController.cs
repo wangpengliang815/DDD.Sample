@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 using Ordering.Application.Commands;
-using Ordering.Domain.Entities;
+using Ordering.Infrastructure.Entities;
 using Ordering.Infrastructure.Context;
 
 namespace Ordering.Api.Controllers

@@ -6,8 +6,9 @@ using AutoMapper;
 using DotnetCoreInfra.SeedWork;
 
 using Ordering.Domain.AggregateModels;
-using Ordering.Domain.Entities;
+using Ordering.Infrastructure.Entities;
 using Ordering.DomainService.Interfaces;
+using Ordering.Infrastructure.Repos;
 
 namespace Ordering.DomainService.Implements
 {

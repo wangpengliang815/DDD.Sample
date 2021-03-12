@@ -11,25 +11,26 @@ namespace Ordering.Domain.AggregateModels
     public class Order
         : BaseDomainEntity, IAggregateRoot
     {
+        /// <summary>Gets the total price.</summary>
+        /// <value>The total price.</value>
+        public decimal TotalPrice { get; private set; }
+
+        /// <summary>收货相关信息</summary>
+        /// <value>The consignee.</value>
+        public Consignee Consignee { get; private set; }
+    }
+
+    public class Consignee
+    {
         /// <summary>
         /// 收货人名称
         /// </summary>
-        public string ConsigneeName { get; private set; }
+        public string Name { get; private set; }
 
         /// <summary>
         /// 收货人手机号
         /// </summary>
-        public string ConsigneePhone { get; private set; }
-
-        /// <summary>
-        /// 订单总金额
-        /// </summary>
-        public decimal TotalPrice { get; private set; }
-
-        /// <summary>
-        /// 下单时间
-        /// </summary>
-        public DateTime OrderDate { get; private set; }
+        public string Phone { get; private set; }
     }
 }
 

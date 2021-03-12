@@ -1,10 +1,10 @@
-﻿using AutoMapper;
-
-using Ordering.Domain.AggregateModels;
-using Ordering.Domain.Entities;
-
-namespace Ordering.Infrastructure.MapperProfiles
+﻿namespace Ordering.Infrastructure.MapperProfiles
 {
+    using AutoMapper;
+
+    using Ordering.Domain.AggregateModels;
+    using Ordering.Infrastructure.Entities;
+
     public class OrderingProfile : Profile
     {
         public OrderingProfile()
@@ -14,7 +14,7 @@ namespace Ordering.Infrastructure.MapperProfiles
 
         private void InitOrderProfile()
         {
-            CreateMap<Order, OrderEntity>();
+            CreateMap<Order, OrderEntity>().ReverseMap();
         }
     }
 }

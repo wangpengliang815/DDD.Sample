@@ -3,6 +3,7 @@
 using DotnetCoreInfra.SeedWork;
 
 using Ordering.Domain.AggregateModels;
+using Ordering.Infrastructure.Repos;
 
 namespace Ordering.DomainService
 {

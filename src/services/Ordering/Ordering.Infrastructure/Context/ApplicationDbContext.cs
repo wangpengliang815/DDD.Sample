@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
 
-    using Ordering.Domain.Entities;
+    using Ordering.Infrastructure.Entities;
 
     public class ApplicationDbContext : DbContext
     {

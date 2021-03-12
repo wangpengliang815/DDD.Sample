@@ -1,6 +1,6 @@
-﻿using Ordering.Domain.Entities;
+﻿using Ordering.Infrastructure.Entities;
 
-namespace Ordering.Domain.AggregateModels
+namespace Ordering.Infrastructure.Repos
 {
     public interface IOrderRepository : IBaseRepository<OrderEntity>
     {

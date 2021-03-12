@@ -1,11 +1,9 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-
-using Ordering.Domain.AggregateModels;
-using Ordering.Infrastructure.Context;
-
-namespace Ordering.Infrastructure.Repositories
+﻿namespace Ordering.Infrastructure.Repos
 {
+    using Microsoft.EntityFrameworkCore;
+
+    using Ordering.Infrastructure.Context;
+
     public class BaseRepository<TEntity> : IBaseRepository<TEntity>
         where TEntity : class
     {
