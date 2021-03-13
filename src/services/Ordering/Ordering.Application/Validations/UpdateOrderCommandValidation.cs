@@ -1,17 +1,24 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Text;
-//using Ordering.Application.Commands;
+﻿#if debug
+namespace Ordering.Application.Validations
+{
 
-//namespace Ordering.Application.Validations
-//{
-//    public class UpdateOrderCommandValidation : OrderValidation<UpdateOrderCommand>
-//    {
-//        public UpdateOrderCommandValidation()
-//        {
-//            ValidateId();
-//            ValidateName();
-//            ValidatePhone();
-//        }
-//    }
-//}
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    using FluentValidation;
+
+    using Ordering.Application.Commands;
+
+
+    public class UpdateOrderCommandValidation : AbstractValidator<UpdateOrderCommand>
+    {
+        public UpdateOrderCommandValidation()
+        {
+            ValidateId();
+            ValidateName();
+            ValidatePhone();
+        }
+    }
+}
+#endif

@@ -12,7 +12,7 @@
     using Ordering.DomainService.Interfaces;
 
     public class OrderCommandHandler :
-        IRequestHandler<AddOrderCommandArgs, bool>
+        IRequestHandler<AddOrderCommandArgs, object>
     {
         private readonly IOrderService orderService;
         private readonly IMapper mapper;
@@ -24,15 +24,15 @@
             this.mapper = mapper;
         }
 
-        public Task<bool> Handle(AddOrderCommandArgs request
+        public async Task<object> Handle(AddOrderCommandArgs request
             , CancellationToken cancellationToken)
         {
             if (!request.IsValid())
             {
-                return Task.FromResult(false);
+                return await Task.FromResult(request.ValidationResult);
             }
-            orderService.CreateAsync(mapper.Map<Order>(request));
-            return Task.FromResult(true);
+            var result = await orderService.CreateAsync(mapper.Map<Order>(request));
+            return await Task.FromResult(result);
         }
     }
 }

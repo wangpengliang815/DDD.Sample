@@ -9,15 +9,15 @@ namespace Ordering.DomainService
 {
     public class BaseService
     {
-        protected readonly IOrderRepository orderRepository;
+        protected readonly IOrderRepository repository;
         protected readonly IMapper mapper;
         protected readonly IUnitOfWork unitOfWork;
 
-        public BaseService(IOrderRepository orderRepository
+        public BaseService(IOrderRepository repository
             , IMapper mapper
             , IUnitOfWork unitOfWork)
         {
-            this.orderRepository = orderRepository;
+            this.repository = repository;
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
         }

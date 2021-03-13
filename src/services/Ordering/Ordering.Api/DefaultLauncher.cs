@@ -158,9 +158,9 @@ namespace Ordering.Api
         {
             Assembly[] assemblies = new Assembly[] {
                 // infra
-                typeof(Ordering.Infrastructure.MapperProfiles.OrderingProfile).Assembly,
-                //application
-                //typeof(AppContextProfile).Assembly,
+                typeof(Infrastructure.MapperProfiles.OrderingProfile).Assembly,
+                // application
+                typeof(Application.MapperProfiles.OrderingProfile).Assembly,
             };
             return assemblies;
         }

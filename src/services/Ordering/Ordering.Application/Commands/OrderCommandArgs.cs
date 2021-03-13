@@ -1,24 +1,22 @@
 ﻿namespace Ordering.Application.Commands
 {
-    using System.ComponentModel.DataAnnotations;
+    using System.Collections.Generic;
 
     using DotnetCoreInfra.Abstractions;
+
+    using Ordering.Domain.AggregateModels;
+    using Ordering.Domain.Enums;
 
     public abstract class OrderCommandArgs : BaseCommandArgs
     {
         public virtual string Guid { get; set; }
 
+        public virtual OrderStatus Status { get; set; }
+
         public decimal TotalPrice { get; set; }
 
-        public ConsigneeArgs Consignee { get; set; }
-    }
+        public Consignee Consignee { get; set; }
 
-    public class ConsigneeArgs
-    {
-        [Required]
-        public string ConsigneeName { get; protected set; }
-
-        [Required]
-        public string ConsigneePhone { get; protected set; }
+        public List<OrderDetail> Details { get; set; }
     }
 }

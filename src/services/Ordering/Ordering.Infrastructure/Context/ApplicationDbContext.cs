@@ -13,5 +13,7 @@
         }
 
         public DbSet<OrderEntity> Orders { get; set; }
+
+        public DbSet<OrderDetailEntity> OrderDetails { get; set; }
     }
 }

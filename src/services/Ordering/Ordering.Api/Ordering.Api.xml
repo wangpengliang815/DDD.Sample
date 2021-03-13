@@ -4,12 +4,12 @@
         <name>Ordering.Api</name>
     </assembly>
     <members>
-        <member name="M:Ordering.Api.Controllers.OrderController.Get">
-            <summary>Get Orders</summary>
+        <member name="M:Ordering.Api.Controllers.OrdersController.Get">
+            <summary>Odata</summary>
             <returns></returns>
         </member>
-        <member name="M:Ordering.Api.Controllers.OrderController.Post(Ordering.Application.Commands.AddOrderCommandArgs)">
-            <summary>Posts Order</summary>
+        <member name="M:Ordering.Api.Controllers.OrdersController.Post(Ordering.Application.Commands.AddOrderCommandArgs)">
+            <summary>创建订单</summary>
             <param name="command">The command.</param>
         </member>
         <member name="M:Ordering.Api.DefaultLauncher.BuildServices(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">

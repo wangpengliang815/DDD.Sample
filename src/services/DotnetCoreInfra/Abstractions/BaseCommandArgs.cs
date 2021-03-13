@@ -2,6 +2,8 @@
 
 using FluentValidation.Results;
 
+using Newtonsoft.Json;
+
 namespace DotnetCoreInfra.Abstractions
 {
     /// <summary>
@@ -9,11 +11,12 @@ namespace DotnetCoreInfra.Abstractions
     /// </summary>
     public abstract class BaseCommandArgs
     {
-        //时间戳
-        public DateTime Timestamp { get; private set; }
+        [JsonIgnore]
+        public virtual DateTime Timestamp { get; set; }
 
+        [JsonIgnore]
         //验证结果，需要引用FluentValidation
-        public ValidationResult ValidationResult { get; set; }
+        public virtual ValidationResult ValidationResult { get; set; }
 
         protected BaseCommandArgs()
         {

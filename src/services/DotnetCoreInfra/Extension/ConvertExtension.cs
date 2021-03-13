@@ -154,7 +154,7 @@ namespace DotnetCoreInfra.Extension
             DateTime reval = DateTime.MinValue;
             if (thisValue != null && thisValue != DBNull.Value && DateTime.TryParse(thisValue.ToString(), out reval))
             {
-                return reval;
+                return DateTime.MinValue;
             }
             return errorValue;
         }
