@@ -7,6 +7,10 @@
     [Table("T_Store_Store")]
     public class StoreEntity : BaseEntity
     {
-        
+        public string GoodsId { get; set; }
+
+        public string GoodsName { get; set; }
+
+        public string SurplusNumber { get; set; }
     }
 }

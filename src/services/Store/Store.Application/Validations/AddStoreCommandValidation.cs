@@ -12,7 +12,7 @@
         }
         protected void ValidateConsignee()
         {
-           
+            // Method intentionally left empty.
         }
     }
 }

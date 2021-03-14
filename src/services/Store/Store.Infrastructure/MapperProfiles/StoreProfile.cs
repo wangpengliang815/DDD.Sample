@@ -2,6 +2,9 @@
 {
     using AutoMapper;
 
+    using Store.Domain.AggregateModels;
+    using Store.Infrastructure.Entities;
+
     public class StoreProfile : Profile
     {
         public StoreProfile()
@@ -11,7 +14,7 @@
 
         private void InitStoreProfile()
         {
-           
+            CreateMap<StoreModel, StoreEntity>().ReverseMap();
         }
     }
 }

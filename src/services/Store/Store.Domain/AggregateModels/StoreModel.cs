@@ -3,10 +3,14 @@
     using DotnetCoreInfra.Abstractions;
     using DotnetCoreInfra.SeedWork;
 
-    public class Store
+    public class StoreModel
         : BaseDomainEntity, IAggregateRoot
     {
+        public string GoodsId { get; set; }
 
+        public string GoodsName { get; set; }
+
+        public string SurplusNumber { get; set; }
     }
 }
 

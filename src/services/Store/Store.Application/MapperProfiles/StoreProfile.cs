@@ -2,6 +2,9 @@
 {
     using AutoMapper;
 
+    using Store.Application.Commands;
+    using Store.Domain.AggregateModels;
+
     public class StoreProfile : Profile
     {
         public StoreProfile()
@@ -11,7 +14,7 @@
 
         private void InitStoreProfile()
         {
-            
+            CreateMap<AddStoreCommandArgs, StoreModel>();
         }
     }
 }
