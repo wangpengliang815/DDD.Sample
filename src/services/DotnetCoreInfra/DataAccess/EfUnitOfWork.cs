@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
 
     using DotnetCoreInfra.DataAccessInterface;
+    using DotnetCoreInfra.SeedWork;
 
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Storage;
@@ -120,6 +121,11 @@
                               .ConfigureAwait(false);
 
             return value > 0;
+        }
+
+        public Task<bool> Commit()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

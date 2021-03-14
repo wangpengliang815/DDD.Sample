@@ -7,7 +7,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
-    <DocumentationFile>Ordering.Api.xml</DocumentationFile>
+    <DocumentationFile>Store.Api.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,14 +29,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ordering.Application\Ordering.Application.csproj" />
-    <ProjectReference Include="..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
+    <ProjectReference Include="..\Store.Application\Store.Application.csproj" />
+    <ProjectReference Include="..\Store.Infrastructure\Store.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Ordering.Api.xml">
+    <None Update="Store.Api.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <DocFileItem Remove="Store.Api.xml" />
   </ItemGroup>
 
 </Project>

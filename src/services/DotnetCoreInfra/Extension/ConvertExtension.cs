@@ -143,6 +143,7 @@ namespace DotnetCoreInfra.Extension
             return reval;
         }
 
+#if debug
         /// <summary>
         /// 
         /// </summary>
@@ -158,7 +159,7 @@ namespace DotnetCoreInfra.Extension
             }
             return errorValue;
         }
-
+#endif
         /// <summary>
         /// 
         /// </summary>

@@ -25,11 +25,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-using Ordering.Api.Extensions;
-using Ordering.Application.CommandHandlers;
-using Ordering.Infrastructure.Context;
+using Store.Api.Extensions;
+using Store.Application.CommandHandlers;
+using Store.Infrastructure.Context;
 
-namespace Ordering.Api
+namespace Store.Api
 {
     public static class DefaultLauncher
     {
@@ -72,7 +72,7 @@ namespace Ordering.Api
             services.AddOData();
 
             // OpenAPI            
-            services.AddOpenApi("Ordering.Api", $"{AppDomain.CurrentDomain.BaseDirectory}{AppDomain.CurrentDomain.FriendlyName}.xml", "v1");
+            services.AddOpenApi("Store.Api", $"{AppDomain.CurrentDomain.BaseDirectory}{AppDomain.CurrentDomain.FriendlyName}.xml", "v1");
 
             // AutoMapper
             services.AddAutoMapper(GetAutoMapperProfiles());
@@ -86,7 +86,7 @@ namespace Ordering.Api
 
             // MediatR反射获取注入类型
             services.AddMediatR(typeof(Startup).Assembly);
-            services.AddMediatR(typeof(OrderCommandHandler).Assembly);
+            services.AddMediatR(typeof(StoreCommandHandler).Assembly);
 
             // Workaround: https://github.com/OData/WebApi/issues/1177
             services.AddMvcCore(options =>
@@ -120,7 +120,7 @@ namespace Ordering.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseOpenApi("Ordering.Api", "/well-known/docs", version: "v1");
+            app.UseOpenApi("Store.Api", "/well-known/docs", version: "v1");
 
             app.UseMvc(routeBuilder =>
             {
@@ -138,8 +138,8 @@ namespace Ordering.Api
             builder.Populate(services);
 
             builder.RegisterAssemblyTypes(LoadAssemblies(new string[] {
-                "Ordering.DomainService",
-                "Ordering.Infrastructure"
+                "Store.DomainService",
+                "Store.Infrastructure"
             })).InstancePerLifetimeScope().AsImplementedInterfaces();
 
             AutofacServiceProvider serviceProvider =
@@ -168,9 +168,9 @@ namespace Ordering.Api
         {
             Assembly[] assemblies = new Assembly[] {
                 // infra
-                typeof(Infrastructure.MapperProfiles.OrderingProfile).Assembly,
+                typeof(Infrastructure.MapperProfiles.StoreProfile).Assembly,
                 // application
-                typeof(Application.MapperProfiles.OrderingProfile).Assembly,
+                typeof(Application.MapperProfiles.StoreProfile).Assembly,
             };
             return assemblies;
         }
