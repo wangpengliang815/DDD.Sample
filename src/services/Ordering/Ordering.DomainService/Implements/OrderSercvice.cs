@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using AutoMapper;
@@ -50,9 +49,12 @@ namespace Ordering.DomainService.Implements
             return mapper.Map<Order>(order);
         }
 
-        public Task<Order> UpdateAsync(Order model)
+        public async Task<Order> UpdateAsync(Order model)
         {
-            throw new NotImplementedException();
+            OrderEntity entity = mapper.Map<OrderEntity>(model);
+            repository.Update(entity);
+            await unitOfWork.Commit();
+            return model;
         }
     }
 }

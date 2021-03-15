@@ -9,18 +9,18 @@ using Ordering.Domain.Enums;
 
 namespace Ordering.Application.Commands
 {
-    public class AddOrderCommandArgs : OrderCommandArgs
+    public class OrderAddCommandArgs : OrderCommandArgs
         , IRequest<object>
     {
         [JsonIgnore]
         public override OrderStatus Status { get => base.Status; set => base.Status = value; }
 
         [JsonIgnore]
-        public override string Guid { get => base.Guid; set => base.Guid = value; }
+        public override string Id { get => base.Id; set => base.Id = value; }
 
         public override bool IsValid()
         {
-            ValidationResult = new AddOrderCommandValidation().Validate(this);
+            ValidationResult = new OrderAddCommandValidation().Validate(this);
             return ValidationResult.IsValid;
         }
     }

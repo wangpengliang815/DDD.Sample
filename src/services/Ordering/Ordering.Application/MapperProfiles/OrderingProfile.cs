@@ -14,7 +14,7 @@
 
         private void InitOrderProfile()
         {
-            CreateMap<AddOrderCommandArgs, Order>();
+            CreateMap<OrderAddCommandArgs, Order>();
         }
     }
 }

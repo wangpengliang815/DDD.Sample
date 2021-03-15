@@ -39,7 +39,16 @@ namespace Ordering.Api.Controllers
         /// <summary>创建订单</summary>
         /// <param name="command">The command.</param>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] AddOrderCommandArgs command)
+        public async Task<IActionResult> Post([FromBody] OrderAddCommandArgs command)
+        {
+            object result = await Mediator.Send(command);
+            return new JsonResult(result);
+        }
+
+        /// <summary>更新订单状态</summary>
+        /// <param name="command">The command.</param>
+        /// <returns></returns>
+        public async Task<IActionResult> UpdateOrderStatus([FromBody] OrderUpdateStatusCommandArgs command)
         {
             object result = await Mediator.Send(command);
             return new JsonResult(result);

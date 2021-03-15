@@ -9,7 +9,7 @@
 
     public abstract class OrderCommandArgs : BaseCommandArgs
     {
-        public virtual string Guid { get; set; }
+        public virtual string Id { get; set; }
 
         public virtual OrderStatus Status { get; set; }
 

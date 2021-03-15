@@ -4,9 +4,9 @@ using Ordering.Application.Commands;
 
 namespace Ordering.Application.Validations
 {
-    public class AddOrderCommandValidation : AbstractValidator<OrderCommandArgs>
+    public class OrderAddCommandValidation : AbstractValidator<OrderCommandArgs>
     {
-        public AddOrderCommandValidation()
+        public OrderAddCommandValidation()
         {
             ValidateConsignee();
         }
