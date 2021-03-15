@@ -1,7 +1,11 @@
 ﻿namespace Ordering.Infrastructure.Repos
 {
+    using System.Threading.Tasks;
+
     using Ordering.Infrastructure.Context;
     using Ordering.Infrastructure.Entities;
+    using System.Linq;
+    using Microsoft.EntityFrameworkCore;
 
     public class OrderRepository : IOrderRepository
     {
@@ -26,6 +30,17 @@
         public OrderDetailEntity CreateDetail(OrderDetailEntity entity)
         {
             DbContext.OrderDetails.Add(entity);
+            return entity;
+        }
+
+        public async Task<OrderEntity> FindAsync(string id)
+        {
+            var entity = await DbContext.FindAsync<OrderEntity>(id).ConfigureAwait(false);
+            if (entity is null)
+            {
+                return null;
+            }
+            DbContext.Entry(entity).State = EntityState.Detached;
             return entity;
         }
     }

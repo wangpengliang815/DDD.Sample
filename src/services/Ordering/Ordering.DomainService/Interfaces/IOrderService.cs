@@ -11,5 +11,7 @@ namespace Ordering.DomainService.Interfaces
 
         Task<Order> UpdateAsync(
               Order model);
+
+        Task<Order> FindAsync(string id);
     }
 }

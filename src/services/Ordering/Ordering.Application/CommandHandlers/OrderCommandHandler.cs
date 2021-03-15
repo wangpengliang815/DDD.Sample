@@ -12,15 +12,16 @@
     using Ordering.DomainService.Interfaces;
 
     public class OrderCommandHandler :
-        IRequestHandler<OrderAddCommandArgs, object>
+         IRequestHandler<OrderAddCommandArgs, object>
+       , IRequestHandler<OrderUpdateStatusCommandArgs, object>
     {
-        private readonly IOrderService orderService;
+        private readonly IOrderService service;
         private readonly IMapper mapper;
 
-        public OrderCommandHandler(IOrderService orderService
+        public OrderCommandHandler(IOrderService service
             , IMapper mapper)
         {
-            this.orderService = orderService;
+            this.service = service;
             this.mapper = mapper;
         }
 
@@ -31,7 +32,7 @@
             {
                 return await Task.FromResult(request.ValidationResult);
             }
-            var result = await orderService.CreateAsync(mapper.Map<Order>(request));
+            var result = await service.CreateAsync(mapper.Map<Order>(request));
             return await Task.FromResult(result);
         }
 
@@ -42,8 +43,17 @@
             {
                 return await Task.FromResult(request.ValidationResult);
             }
-            var result = await orderService.UpdateAsync(mapper.Map<Order>(request));
-            return await Task.FromResult(result);
+            var order = await service.FindAsync(request.Id);
+            if (order is null)
+            {
+                return await Task.FromResult($"request.Id{request.Id} 不存在");
+            }
+            else
+            {
+                order.Status = request.Status;
+                var result = await service.UpdateAsync(order);
+                return await Task.FromResult(result);
+            }
         }
     }
 }

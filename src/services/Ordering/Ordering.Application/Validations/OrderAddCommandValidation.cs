@@ -8,10 +8,6 @@ namespace Ordering.Application.Validations
     {
         public OrderAddCommandValidation()
         {
-            ValidateConsignee();
-        }
-        protected void ValidateConsignee()
-        {
             RuleFor(c => c.Consignee.Name)
                 .NotEmpty().WithMessage("收货人姓名不能为空")
                 .Length(2, 10).WithMessage("姓名在2~10个字符之间");

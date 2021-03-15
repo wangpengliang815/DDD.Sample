@@ -49,9 +49,17 @@ namespace Ordering.DomainService.Implements
             return mapper.Map<Order>(order);
         }
 
+        public async Task<Order> FindAsync(string id)
+        {
+            var result = await repository.FindAsync(id);
+            return mapper.Map<Order>(result);
+        }
+
         public async Task<Order> UpdateAsync(Order model)
         {
             OrderEntity entity = mapper.Map<OrderEntity>(model);
+            entity.Created = DateTime.Now;
+            entity.Edited = DateTime.Now;
             repository.Update(entity);
             await unitOfWork.Commit();
             return model;

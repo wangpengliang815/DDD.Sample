@@ -45,9 +45,10 @@ namespace Ordering.Api.Controllers
             return new JsonResult(result);
         }
 
-        /// <summary>更新订单状态</summary>
+        /// <summary>更新状态</summary>
         /// <param name="command">The command.</param>
         /// <returns></returns>
+        [HttpPut]
         public async Task<IActionResult> UpdateOrderStatus([FromBody] OrderUpdateStatusCommandArgs command)
         {
             object result = await Mediator.Send(command);

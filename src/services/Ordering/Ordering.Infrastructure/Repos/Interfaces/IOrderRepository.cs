@@ -1,4 +1,6 @@
-﻿using Ordering.Infrastructure.Entities;
+﻿using System.Threading.Tasks;
+
+using Ordering.Infrastructure.Entities;
 
 namespace Ordering.Infrastructure.Repos
 {
@@ -7,6 +9,8 @@ namespace Ordering.Infrastructure.Repos
         OrderEntity Create(OrderEntity entity);
 
         OrderEntity Update(OrderEntity entity);
+
+        Task<OrderEntity> FindAsync(string id);
 
         OrderDetailEntity CreateDetail(OrderDetailEntity entity);
     }
