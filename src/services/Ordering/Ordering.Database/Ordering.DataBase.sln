@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DDDSample.DataBase", "DDDSample.DataBase\DDDSample.DataBase.sqlproj", "{4CE4C59F-92FC-4847-ADA6-52F3655B4F48}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Ordering.DataBase", "Ordering.DataBase\Ordering.DataBase.sqlproj", "{4CE4C59F-92FC-4847-ADA6-52F3655B4F48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
