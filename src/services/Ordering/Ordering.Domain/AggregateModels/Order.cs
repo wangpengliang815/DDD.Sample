@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
 
-    using DotnetCoreInfra.Abstractions;
-    using DotnetCoreInfra.SeedWork;
+    using DotNetCore.Infra.Abstractions;
+    using DotNetCore.Infra.SeedWork;
 
     using Ordering.Domain.Enums;
 
@@ -45,7 +45,7 @@
     }
 
     /// <summary>子实体</summary>
-    /// <seealso cref="DotnetCoreInfra.Abstractions.BaseDomainEntity" />
+    /// <seealso cref="DotNetCore.Infra.Abstractions.BaseDomainEntity" />
     public class OrderDetail : BaseDomainEntity
     {
         public string GoodsId { get; set; }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-using DotnetCoreInfra.SeedWork;
+using DotNetCore.Infra.SeedWork;
 
 using Store.Infrastructure.Repos;
 

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 
-using DotnetCoreInfra.SeedWork;
+using DotNetCore.Infra.SeedWork;
 
 using Store.Domain.AggregateModels;
 using Store.DomainService.Interfaces;

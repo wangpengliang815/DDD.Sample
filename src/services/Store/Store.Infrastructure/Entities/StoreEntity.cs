@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations.Schema;
 
-    using DotnetCoreInfra.Abstractions;
+    using DotNetCore.Infra.Abstractions;
 
     [Table("T_Store_Store")]
     public class StoreEntity : BaseEntity

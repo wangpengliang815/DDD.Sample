@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 using Ordering.Infrastructure.Context;
 
-namespace DotnetCoreInfra.UnitTests
+namespace DotNetCore.Infra.UnitTests
 {
     public class TestBase
     {

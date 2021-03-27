@@ -1,7 +1,7 @@
 ﻿namespace Store.Domain.AggregateModels
 {
-    using DotnetCoreInfra.Abstractions;
-    using DotnetCoreInfra.SeedWork;
+    using DotNetCore.Infra.Abstractions;
+    using DotNetCore.Infra.SeedWork;
 
     public class StoreModel
         : BaseDomainEntity, IAggregateRoot

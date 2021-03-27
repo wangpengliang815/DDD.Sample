@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    using DotnetCoreInfra.SeedWork;
+    using DotNetCore.Infra.SeedWork;
 
     using Store.Infrastructure.Context;
 

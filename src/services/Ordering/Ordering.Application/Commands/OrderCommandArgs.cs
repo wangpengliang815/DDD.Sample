@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using DotnetCoreInfra.Abstractions;
+    using DotNetCore.Infra.Abstractions;
 
     using Ordering.Domain.AggregateModels;
     using Ordering.Domain.Enums;

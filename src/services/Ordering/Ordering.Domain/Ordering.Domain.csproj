@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DotnetCoreInfra\DotnetCoreInfra.csproj" />
+    <ProjectReference Include="..\..\DotNetCore.Infra\DotNetCore.Infra.csproj" />
   </ItemGroup>
 
 </Project>

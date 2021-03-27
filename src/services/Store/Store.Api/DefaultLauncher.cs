@@ -8,9 +8,9 @@ using Autofac.Extensions.DependencyInjection;
 
 using AutoMapper;
 
-using DotnetCoreInfra.DataAccess;
-using DotnetCoreInfra.DataAccessInterface;
-using DotnetCoreInfra.SeedWork;
+using DotNetCore.Infra.DataAccess;
+using DotNetCore.Infra.DataAccessInterface;
+using DotNetCore.Infra.SeedWork;
 
 using MediatR;
 

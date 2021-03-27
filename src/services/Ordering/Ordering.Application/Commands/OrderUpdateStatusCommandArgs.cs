@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-using DotnetCoreInfra.Abstractions;
+using DotNetCore.Infra.Abstractions;
 
 using MediatR;
 

@@ -15,12 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <PackageReference Include="DotNetCore.CAP" Version="3.1.0" />
 	  <PackageReference Include="Autofac" Version="6.1.0" />
 	  <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.0.0" />
 	  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
-	  <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="3.1.0" />
-	  <PackageReference Include="DotNetCore.CAP.SqlServer" Version="3.1.0" />
 	  <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.4.0" />
 	  <PackageReference Include="OpenTracing.Contrib.NetCore" Version="0.6.2" />
@@ -29,6 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DotNetCore.CAP.RabbitMQ\DotNetCore.CAP.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\DotNetCore.CAP.SqlServer\DotNetCore.CAP.SqlServer.csproj" />
+    <ProjectReference Include="..\..\DotNetCore.CAP\DotNetCore.CAP.csproj" />
     <ProjectReference Include="..\Ordering.Application\Ordering.Application.csproj" />
     <ProjectReference Include="..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
   </ItemGroup>

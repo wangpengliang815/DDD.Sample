@@ -3,10 +3,10 @@
 using System;
 using System.Linq;
 
-using DotnetCoreInfra.Common;
-using DotnetCoreInfra.DataAccess;
-using DotnetCoreInfra.DataAccessInterface;
-using DotnetCoreInfra.Options;
+using DotNetCore.Infra.Common;
+using DotNetCore.Infra.DataAccess;
+using DotNetCore.Infra.DataAccessInterface;
+using DotNetCore.Infra.Options;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -17,7 +17,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ordering.Infrastructure.Context;
 using Ordering.Infrastructure.Entities;
 
-namespace DotnetCoreInfra.UnitTests
+namespace DotNetCore.Infra.UnitTests
 {
     [TestClass()]
     [TestCategory("dataAccessor")]

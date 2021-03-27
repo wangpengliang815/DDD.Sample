@@ -9,9 +9,9 @@ using AutoMapper;
 
 using DotNetCore.CAP.Messages;
 
-using DotnetCoreInfra.DataAccess;
-using DotnetCoreInfra.DataAccessInterface;
-using DotnetCoreInfra.SeedWork;
+using DotNetCore.Infra.DataAccess;
+using DotNetCore.Infra.DataAccessInterface;
+using DotNetCore.Infra.SeedWork;
 
 using MediatR;
 
@@ -50,7 +50,7 @@ namespace Ordering.Api
             services.AddCap(options =>
             {
                 options.UseEntityFramework<ApplicationDbContext>();
-                options.UseRabbitMQ("10.122.164.191");
+                options.UseRabbitMQ("192.168.31.31");
                 options.FailedRetryCount = 5;
                 options.FailedThresholdCallback = failed =>
                 {
