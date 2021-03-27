@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -15,7 +16,7 @@ namespace Ordering.Api.Extensions
             {
                 options.CustomSchemaIds(type => type.FullName);
 
-                options.SwaggerDoc(version, new Info
+                options.SwaggerDoc(version, new OpenApiInfo
                 {
                     Title = title,
                     Version = $"{version}"

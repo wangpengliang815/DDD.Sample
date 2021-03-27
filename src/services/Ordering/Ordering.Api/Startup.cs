@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
+
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,23 +14,47 @@ namespace Ordering.Api
 {
     public class Startup
     {
-        private readonly IHostingEnvironment environment;
+        private readonly IWebHostEnvironment environment;
 
         public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration
-            , IHostingEnvironment env)
+            , IWebHostEnvironment env)
         {
             Configuration = configuration;
             environment = env;
         }
 
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
-            return DefaultLauncher.ConfigureServices(services, Configuration, environment);
+            DefaultLauncher.ConfigureServices(services, Configuration, environment);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterAssemblyTypes(LoadAssemblies(new string[] {
+                "Ordering.DomainService",
+                "Ordering.Infrastructure"
+            })).AsImplementedInterfaces().InstancePerLifetimeScope();
+        }
+
+        private static Assembly[] LoadAssemblies(params string[] assemblyNames)
+        {
+            if (assemblyNames == null || !assemblyNames.Any())
+            {
+                return new Assembly[0];
+            }
+            else
+            {
+                Assembly[] assemblies = assemblyNames.Where(p => !string.IsNullOrWhiteSpace(p)).Select(p =>
+                {
+                    return Assembly.Load(p);
+                }).ToArray();
+                return assemblies;
+            }
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             DefaultLauncher.BuildServices(app, env);
         }

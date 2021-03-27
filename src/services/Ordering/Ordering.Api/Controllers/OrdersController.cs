@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 
+using DotNetCore.CAP;
+
 using MediatR;
 
 using Microsoft.AspNet.OData;
@@ -20,10 +22,14 @@ namespace Ordering.Api.Controllers
 
         private readonly ApplicationDbContext dbContext;
 
+        private readonly ICapPublisher publisher;
+
         public OrdersController(ApplicationDbContext dbContext
-            , IMediator mediator)
+            , IMediator mediator
+            , ICapPublisher publisher)
         {
             this.dbContext = dbContext;
+            this.publisher = publisher;
             Mediator = mediator;
         }
 
@@ -42,6 +48,7 @@ namespace Ordering.Api.Controllers
         public async Task<IActionResult> Post([FromBody] OrderAddCommandArgs command)
         {
             object result = await Mediator.Send(command);
+            await publisher.PublishAsync("cap", result);
             return new JsonResult(result);
         }
 

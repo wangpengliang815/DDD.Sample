@@ -13,6 +13,5 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\DotnetCoreInfra\DotnetCoreInfra.csproj" />
-	  <ProjectReference Include="..\Store.Domain\Store.Domain.csproj" />
 	</ItemGroup>
 </Project>

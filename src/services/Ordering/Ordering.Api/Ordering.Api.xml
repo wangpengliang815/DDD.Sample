@@ -17,10 +17,5 @@
             <param name="command">The command.</param>
             <returns></returns>
         </member>
-        <member name="M:Ordering.Api.DefaultLauncher.BuildServices(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
-            <summary>Builds the services.</summary>
-            <param name="app">The application.</param>
-            <param name="env">The env.</param>
-        </member>
     </members>
 </doc>
