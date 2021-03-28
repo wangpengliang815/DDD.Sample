@@ -50,7 +50,7 @@ namespace Ordering.Api
             services.AddCap(options =>
             {
                 options.UseEntityFramework<ApplicationDbContext>();
-                options.UseRabbitMQ("192.168.31.31");
+                options.UseRabbitMQ("localhost");
                 options.FailedRetryCount = 5;
                 options.FailedThresholdCallback = failed =>
                 {
