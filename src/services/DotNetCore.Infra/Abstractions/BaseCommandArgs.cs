@@ -6,9 +6,6 @@ using Newtonsoft.Json;
 
 namespace DotNetCore.Infra.Abstractions
 {
-    /// <summary>
-    /// 抽象命令基类
-    /// </summary>
     public abstract class BaseCommandArgs
     {
         [JsonIgnore]
