@@ -1,11 +1,11 @@
-﻿using System;
-
-using DotNetCore.Infra.Common;
-
-using Microsoft.AspNetCore.Builder;
-
-namespace DotNetCore.Infra.Extension
+﻿namespace DotNetCore.Infra.Extension
 {
+    using System;
+
+    using DotNetCore.Infra.Common;
+
+    using Microsoft.AspNetCore.Builder;
+
     public static class ServiceProviderExtensions
     {
         public static IApplicationBuilder UseStaticServiceProvider(this IApplicationBuilder app)

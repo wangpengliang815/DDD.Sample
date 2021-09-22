@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-
-using DotNetCore.Infra.SeedWork;
-
-using Ordering.Domain.AggregateModels;
-using Ordering.Infrastructure.Repos;
-
-namespace Ordering.DomainService
+﻿namespace Ordering.Application
 {
+    using AutoMapper;
+
+    using DotNetCore.Infra.SeedWork;
+
+    using Ordering.Domain.AggregateModels;
+    using Ordering.Domain.Interfaces;
+
     public class BaseService
     {
         protected readonly IOrderRepository repository;

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-
-namespace DotNetCore.Infra.Safety
+﻿namespace DotNetCore.Infra.Safety
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+
     public static class PropertyDecryption
     {
         private static readonly string Seed = "C@/?";

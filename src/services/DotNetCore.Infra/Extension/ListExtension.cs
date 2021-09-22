@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using DotNetCore.Infra.Safety;
-
-namespace DotNetCore.Infra.Extension
+﻿namespace DotNetCore.Infra.Extension
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
+    using DotNetCore.Infra.Safety;
+
     /// <summary>
     /// 集合扩展类
     /// </summary>

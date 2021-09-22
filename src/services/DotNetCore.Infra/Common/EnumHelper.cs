@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace DotNetCore.Infra.Common
+﻿namespace DotNetCore.Infra.Common
 {
+    using System;
+    using System.Collections.Concurrent;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public static class EnumHelper
     {
         private static readonly ConcurrentDictionary<Type, Dictionary<long, string>> descDictionary

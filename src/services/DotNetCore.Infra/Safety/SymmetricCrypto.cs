@@ -1,10 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-
-namespace DotNetCore.Infra.Safety
+﻿namespace DotNetCore.Infra.Safety
 {
+    using System;
+    using System.IO;
+    using System.Security.Cryptography;
+    using System.Text;
+
     internal enum CryptoMode
     {
         AES,

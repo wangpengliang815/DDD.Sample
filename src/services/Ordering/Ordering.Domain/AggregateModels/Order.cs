@@ -1,11 +1,10 @@
 ﻿namespace Ordering.Domain.AggregateModels
 {
+    using System;
     using System.Collections.Generic;
 
     using DotNetCore.Infra.Abstractions;
     using DotNetCore.Infra.SeedWork;
-
-    using Ordering.Domain.Enums;
 
     /// <summary>
     /// 订单实体,聚合根
@@ -15,44 +14,23 @@
     {
         /// <summary>Gets the total price.</summary>
         /// <value>The total price.</value>
-        public decimal TotalPrice { get; set; }
+        public decimal TotalPrice { get; private set; }
 
-        /// <summary>Gets or sets the status.</summary>
-        /// <value>The status.</value>
-        public OrderStatus Status { get; set; }
+        /// <summary>Gets the order items.</summary>
+        /// <value>The order items.</value>
+        public List<OrderItem> OrderItems { get; private set; }
 
-        /// <summary>Gets or sets the detail.</summary>
-        /// <value>The detail.</value>
-        public List<OrderDetail> Details { get; set; }
 
-        /// <summary>收货相关信息</summary>
-        /// <value>The consignee.</value>
-        public Consignee Consignee { get; set; }
-    }
-
-    /// <summary>值对象</summary>
-    public class Consignee
-    {
-        /// <summary>
-        /// 收货人名称
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// 收货人手机号
-        /// </summary>
-        public string Phone { get; set; }
-    }
-
-    /// <summary>子实体</summary>
-    /// <seealso cref="DotNetCore.Infra.Abstractions.BaseDomainEntity" />
-    public class OrderDetail : BaseDomainEntity
-    {
-        public string GoodsId { get; set; }
-
-        public string GoodsName { get; set; }
-
-        public int Number { get; set; }
+        /// <summary>Initializes a new instance of the <see cref="Order"/> class.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="totalPrice">The total price.</param>
+        /// <param name="orderItems">The order items.</param>
+        public Order(Guid id, decimal totalPrice, List<OrderItem> orderItems) 
+        {
+            Id = id;
+            TotalPrice = totalPrice;
+            OrderItems = orderItems;
+        }
     }
 }
 

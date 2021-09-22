@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-
-namespace DotNetCore.Infra.Safety
+﻿namespace DotNetCore.Infra.Safety
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.IO;
+    using System.Security.Cryptography;
+    using System.Text;
+
     /// <summary>
     /// 加密、解密
     /// </summary>

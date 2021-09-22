@@ -1,8 +1,8 @@
-﻿
-using DotNetCore.Infra.Abstractions;
-
-namespace DotNetCore.Infra.Options
+﻿namespace DotNetCore.Infra.Options
 {
+
+    using DotNetCore.Infra.Abstractions;
+
     public class DataAccessorOptions
     {
         /// <summary>

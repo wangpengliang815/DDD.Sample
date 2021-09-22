@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DotNetCore.Infra.Abstractions
+﻿namespace DotNetCore.Infra.Abstractions
 {
+    using System;
+
     /// <summary>
     /// 定义领域实体基类
     /// </summary>

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-using DotNetCore.Infra.Options;
-
-namespace DotNetCore.Infra.Extension
+﻿namespace DotNetCore.Infra.Extension
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using DotNetCore.Infra.Options;
+
     public static class DataAccessorOptionsExtension
     {
         public static List<string> GetExcludingFieldsWhenEditing(this DataAccessorOptions options)

@@ -1,10 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
-
-using Swashbuckle.AspNetCore.Swagger;
-
-namespace Ordering.Api.Extensions
+﻿namespace Ordering.Api.Extensions
 {
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.OpenApi.Models;
+
     public static class ServiceExtension
     {
         public static IServiceCollection AddOpenApi(this IServiceCollection services
@@ -21,6 +19,7 @@ namespace Ordering.Api.Extensions
                     Title = title,
                     Version = $"{version}"
                 });
+                options.IgnoreObsoleteProperties();
                 options.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
             return services;

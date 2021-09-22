@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DotNetCore.Infra.Common
+﻿namespace DotNetCore.Infra.Common
 {
+    using System;
+
     public static class ServiceProviderHelper
     {
         public static void Configure(IServiceProvider serviceProvider)

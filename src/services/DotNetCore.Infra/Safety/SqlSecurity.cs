@@ -1,9 +1,9 @@
-﻿using System.Security.Cryptography;
-using System.Text.RegularExpressions;
-
-namespace DotNetCore.Infra.Safety
+﻿namespace DotNetCore.Infra.Safety
 {
-    public class SqlSecurity
+    using System.Security.Cryptography;
+    using System.Text.RegularExpressions;
+
+    public static class SqlSecurity
     {
         /// <summary>
         /// 对字符串进行SQL安全转化

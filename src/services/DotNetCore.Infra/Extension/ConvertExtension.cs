@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DotNetCore.Infra.Extension
+﻿namespace DotNetCore.Infra.Extension
 {
+    using System;
+
     public static class ConvertExtension
     {
         /// <summary>

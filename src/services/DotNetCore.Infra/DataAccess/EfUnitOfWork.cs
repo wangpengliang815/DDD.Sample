@@ -1,6 +1,5 @@
 ﻿namespace DotNetCore.Infra.DataAccess
 {
-
     using System.Data;
     using System.Threading;
     using System.Threading.Tasks;

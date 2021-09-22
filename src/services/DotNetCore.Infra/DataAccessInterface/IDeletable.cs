@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace DotNetCore.Infra.DataAccessInterface
+﻿namespace DotNetCore.Infra.DataAccessInterface
 {
+    using System;
+
     /// <summary>
     /// 可逻辑删除的对象
     /// </summary>

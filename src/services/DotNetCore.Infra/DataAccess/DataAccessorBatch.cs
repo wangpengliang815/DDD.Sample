@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
-
-using DotNetCore.Infra.Abstractions;
-using DotNetCore.Infra.DataAccessInterface;
-using DotNetCore.Infra.Extension;
-
-using EFCore.BulkExtensions;
-
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNetCore.Infra.DataAccess
+﻿namespace DotNetCore.Infra.DataAccess
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    using DotNetCore.Infra.Abstractions;
+    using DotNetCore.Infra.DataAccessInterface;
+    using DotNetCore.Infra.Extension;
+
+    using EFCore.BulkExtensions;
+
+    using Microsoft.EntityFrameworkCore;
+
     public partial class DataAccessor<TContext> : IDataAccessor
         where TContext : DbContext
     {

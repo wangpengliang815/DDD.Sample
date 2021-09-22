@@ -1,13 +1,5 @@
 ﻿#define debugLogger
-using System;
-using System.Linq;
-using System.Reflection;
-
 using Autofac;
-
-using AutoMapper;
-
-using DotNetCore.CAP.Messages;
 
 using DotNetCore.Infra.DataAccess;
 using DotNetCore.Infra.DataAccessInterface;
@@ -21,11 +13,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 using Ordering.Api.Extensions;
-using Ordering.Application.CommandHandlers;
+using Ordering.Domain.CommandHandlers;
 using Ordering.Infrastructure.Context;
+
+using System;
+using System.Linq;
 
 namespace Ordering.Api
 {
@@ -47,6 +41,7 @@ namespace Ordering.Api
 
             services.AddControllers();
 
+#if debug
             services.AddCap(options =>
             {
                 options.UseEntityFramework<ApplicationDbContext>();
@@ -59,14 +54,14 @@ namespace Ordering.Api
                         requiring manual troubleshooting. Message name: {failed.Message.GetName()}");
                 };
             });
-
+#endif
 
             services.AddOpenApi("Ordering.Api", $"{AppDomain.CurrentDomain.BaseDirectory}{AppDomain.CurrentDomain.FriendlyName}.xml", "v1");
 
-            services.AddAutoMapper(new Assembly[] {
-                typeof(Infrastructure.MapperProfiles.OrderingProfile).Assembly,
-                typeof(Application.MapperProfiles.OrderingProfile).Assembly,
-            });
+            //services.AddAutoMapper(new Assembly[] {
+            //    typeof(Infrastructure.MapperProfiles.OrderingProfile).Assembly,
+            //    //typeof(Application.MapperProfiles.OrderingProfile).Assembly,
+            //});
 
             services.AddHttpContextAccessor();
 

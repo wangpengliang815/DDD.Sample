@@ -1,17 +1,15 @@
-﻿using System;
-
-using FluentValidation.Results;
-
-using Newtonsoft.Json;
-
-namespace DotNetCore.Infra.Abstractions
+﻿namespace DotNetCore.Infra.Abstractions
 {
+    using System;
+
+    using FluentValidation.Results;
+
     public abstract class BaseCommandArgs
     {
-        [JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual DateTime Timestamp { get; set; }
 
-        [JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
         //验证结果，需要引用FluentValidation
         public virtual ValidationResult ValidationResult { get; set; }
 
@@ -20,7 +18,7 @@ namespace DotNetCore.Infra.Abstractions
             Timestamp = DateTime.Now;
         }
 
-        //定义抽象方法，是否有效
+        // 定义抽象方法，是否有效
         public abstract bool IsValid();
     }
 }

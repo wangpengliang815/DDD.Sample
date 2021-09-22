@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-
-namespace DotNetCore.Infra.SeedWork
+﻿namespace DotNetCore.Infra.SeedWork
 {
+    using System.Threading.Tasks;
+
     /// <summary>
     /// 工作单元接口
     /// </summary>

@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
 
-    using Ordering.Infrastructure.Entities;
+    using Ordering.Domain.AggregateModels;
 
     public class ApplicationDbContext : DbContext
     {
@@ -12,8 +12,8 @@
 
         }
 
-        public DbSet<OrderEntity> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
-        public DbSet<OrderDetailEntity> OrderDetails { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
     }
 }

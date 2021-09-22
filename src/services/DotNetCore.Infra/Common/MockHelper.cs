@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using System.Reflection;
-
-using Faker;
-
-namespace DotNetCore.Infra.Common
+﻿namespace DotNetCore.Infra.Common
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Globalization;
+    using System.Reflection;
+
+    using Faker;
+
     public static class MockHelper
     {
         /// <summary>

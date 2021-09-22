@@ -8,11 +8,11 @@
             <summary>Odata</summary>
             <returns></returns>
         </member>
-        <member name="M:Ordering.Api.Controllers.OrdersController.Post(Ordering.Application.Commands.OrderAddCommandArgs)">
+        <member name="M:Ordering.Api.Controllers.OrdersController.Post(Ordering.Domain.Commands.OrderAddCommandArgs)">
             <summary>创建订单</summary>
             <param name="command">The command.</param>
         </member>
-        <member name="M:Ordering.Api.Controllers.OrdersController.UpdateOrderStatus(Ordering.Application.Commands.OrderUpdateStatusCommandArgs)">
+        <member name="M:Ordering.Api.Controllers.OrdersController.UpdateOrderStatus(Ordering.Domain.Commands.OrderUpdateStatusCommandArgs)">
             <summary>更新状态</summary>
             <param name="command">The command.</param>
             <returns></returns>

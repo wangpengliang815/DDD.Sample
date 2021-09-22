@@ -33,7 +33,6 @@ namespace Ordering.Api
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterAssemblyTypes(LoadAssemblies(new string[] {
-                "Ordering.DomainService",
                 "Ordering.Infrastructure"
             })).AsImplementedInterfaces().InstancePerLifetimeScope();
         }

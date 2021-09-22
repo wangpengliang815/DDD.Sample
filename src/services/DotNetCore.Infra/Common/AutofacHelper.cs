@@ -1,14 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
-
-using Microsoft.Extensions.DependencyInjection;
-
-namespace DotNetCore.Infra.Common
+﻿namespace DotNetCore.Infra.Common
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+
+    using Autofac;
+    using Autofac.Extensions.DependencyInjection;
+
+    using Microsoft.Extensions.DependencyInjection;
+
     public static class AutofacHelper
     {
         private static readonly object locker = new object();

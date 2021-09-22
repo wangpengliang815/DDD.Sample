@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Threading;
-using System.Threading.Tasks;
-
-using DotNetCore.Infra.DataAccessInterface;
-
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNetCore.Infra.DataAccess
+﻿namespace DotNetCore.Infra.DataAccess
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Common;
+    using System.Data.SqlClient;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    using DotNetCore.Infra.DataAccessInterface;
+
+    using Microsoft.EntityFrameworkCore;
+
     public partial class DataAccessor<TContext> : IDataAccessor
         where TContext : DbContext
     {

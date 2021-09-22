@@ -11,7 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,16 +23,16 @@
 	  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
 	  <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.4.0" />
+	  <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
 	  <PackageReference Include="OpenTracing.Contrib.NetCore" Version="0.6.2" />
+	  <PackageReference Include="StackExchange.Redis" Version="2.2.62" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
 	  <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DotNetCore.CAP.RabbitMQ\DotNetCore.CAP.RabbitMQ.csproj" />
-    <ProjectReference Include="..\..\DotNetCore.CAP.SqlServer\DotNetCore.CAP.SqlServer.csproj" />
-    <ProjectReference Include="..\..\DotNetCore.CAP\DotNetCore.CAP.csproj" />
     <ProjectReference Include="..\Ordering.Application\Ordering.Application.csproj" />
+    <ProjectReference Include="..\Ordering.Domain\Ordering.Domain.csproj" />
     <ProjectReference Include="..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
   </ItemGroup>
 

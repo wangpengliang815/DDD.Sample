@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-namespace Ordering.Api.Extensions
+﻿namespace Ordering.Api.Extensions
 {
+    using Microsoft.AspNetCore.Builder;
+
     public static class BuilderExtension
     {
         public static IApplicationBuilder UseOpenApi(this IApplicationBuilder app
